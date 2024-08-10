@@ -11,7 +11,7 @@ const CreateDeal = () => {
     dispatch(setActive(true));
     setTimeout(() => {
       navigate('/create-deal/gem4ik01')
-    }, 200);
+    }, 250);
 
     setTimeout(() => {
       dispatch(setActive(false));
