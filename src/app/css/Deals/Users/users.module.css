@@ -1,3 +1,8 @@
 .users__wrapper {
   @apply flex flex-wrap gap-[15px] overflow-auto
 }
+
+.users_wrapper {
+  transition: all 0.2s ease-in-out;
+  transform: translateX(-400px);
+}

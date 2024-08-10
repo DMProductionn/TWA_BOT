@@ -21,7 +21,7 @@ const rootReducer = combineReducers({
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['tabsSlice',], // что хотим сохранять
+  whitelist: ['tabsSlice'], // что хотим сохранять
   blacklist: ['animationSlice'], // не хотим сохранять
 };
 

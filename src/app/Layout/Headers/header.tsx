@@ -1,3 +1,4 @@
+import HeaderCreateDeal from './CreateDeal';
 import HeaderDeals from './Deals';
 import HeaderHistory from './History';
 import HeaderProfile from './Profile';
@@ -6,7 +7,7 @@ import { useLocation } from 'react-router-dom';
 const Header = () => {
   const location = useLocation();
 
-  return location.pathname === '/' ? (
+  return location.pathname === '/' || '/create-deal/gem4ik01' ? (
     <header className="flex justify-between items-center pt-[15px] pb-[10px] border-b-[3px] mb-[20px] border-[#fff]">
       <HeaderDeals />
     </header>
@@ -18,7 +19,7 @@ const Header = () => {
     <header className="flex justify-between items-center pt-[15px] pb-[10px] border-b-[3px] mb-[20px] border-[#fff]">
       <HeaderProfile />
     </header>
-  ) : null;
+  ) : null
 };
 
 export default Header;
