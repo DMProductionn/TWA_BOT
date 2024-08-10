@@ -1,27 +1,27 @@
 import { Route, Routes } from 'react-router-dom';
-import Home from '../../pages/Home';
-
+import Layout from '../Layout/Layout';
+import History from '../../pages/History';
+import Profile from '../../pages/Profile';
+import Deals from '../../pages/Deals';
 
 function App() {
 
   return (
     <>
+      <>
       {
         <Routes>
-          <Route path='/' element={<Home />}></Route>
-          {/* <Route path='/' element={<Layout />}>
-          <Route path='/' element={<Home />} />
-          <Route path="/profile/:slug/" element={<Profile />} />
+          <Route path='/' element={<Layout />}>
+          <Route index path='/' element={<Deals />} />
+          <Route path='/history' element={<History />} />
+          <Route path='/profile' element={<Profile />} />
+          <Route path="*" element={<div>404</div>} />
           </Route>
-          <Route path="/auth/users/activation/:uid/:token" element={<EmailConfirmation />} />
-          <Route path="/auth/users/reset_password_confirm/:uid/:token" element={<Recovery />} />
-          <Route path="/forgotpassword" element={<ForgotPassword />} />
-          <Route path="/login" element={<Auth />} /> */}
-          {/* <Route path="*" element={<NotFound />} /> */}
         </Routes>
       }
     </>
-  )
+    </>
+  );
 }
 
-export default App
+export default App;

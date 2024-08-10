@@ -1,0 +1,18 @@
+.create-deal-block {
+  transition: left 0.2s ease;
+  left: 1000px;
+}
+
+.bg {
+  background-color: #000;
+  transition: opacity 0.5s ease;
+  opacity: 0;
+}
+
+.bg.active-bg {
+  opacity: 0.5 !important;
+}
+
+.create-deal-block.go-left {
+  left: 0px
+}

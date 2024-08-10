@@ -1,38 +1,48 @@
-html{
-  box-sizing: border-box;                               
+html {
+  box-sizing: border-box;
 }
 
 *,
 *::before,
-*::after{
+*::after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
 }
 
-a{
+a {
   color: inherit;
   text-decoration: none;
 }
 
-li{
+li {
   list-style: none;
 }
 
-img{
+img {
   max-width: 100%;
 }
 
-body {
-  height: 100%;
+
+footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #333;
+  color: white;
+  text-align: center;
 }
 
+body {
+  @apply bg-blue-dark text-white font-Roboto;
+  overflow-x: hidden;
+}
 
 button {
-    cursor: pointer;
-  }
-
-a {
-    cursor: pointer;
+  cursor: pointer;
 }
 
+a {
+  cursor: pointer;
+}
