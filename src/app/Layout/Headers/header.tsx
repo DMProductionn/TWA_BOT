@@ -1,4 +1,3 @@
-import HeaderCreateDeal from './CreateDeal';
 import HeaderDeals from './Deals';
 import HeaderHistory from './History';
 import HeaderProfile from './Profile';
