@@ -11,8 +11,17 @@ const Deals = () => {
   useEffect(() => {
     const test = localStorage.getItem('user_auth')
     const test2 = localStorage.getItem('dc3_server_salt')
-    console.log(test);
-    console.log(test2);
+    if (test) {
+      console.log(test);
+    } else {
+      console.log('хуйня');
+    }
+
+    if (test2) {
+      console.log(test2);
+    } else {
+      console.log('хуйня2');
+    }
     
     
    }, [])
