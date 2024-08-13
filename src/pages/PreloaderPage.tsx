@@ -6,9 +6,8 @@ const PreloaderPage = () => {
   const [local, setLocal] = useState<string | null>();
 
   useEffect(() => {
-    const lox = localStorage.setItem('lox', JSON.stringify(12345));
-    const lox2 = localStorage.gerItem('lox')
-    const test = localStorage.getItem('k_build');
+    localStorage.setItem('lox', JSON.stringify(12345));
+    const lox2 = localStorage.getItem('lox')
     setLocal(lox2)
 }, []);
 
