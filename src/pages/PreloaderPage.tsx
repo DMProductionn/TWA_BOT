@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import Preloader from '../shared/Preloader';
-import axios from 'axios';
 
 
 const PreloaderPage = () => {
