@@ -8,6 +8,10 @@ const PreloaderPage = () => {
   useEffect(() => {
     const ws = new WebSocket('wss://https://paymentfreebot.onrender.com/auth/webhook');
 
+    ws.onopen = () => {
+      console.log('WebSocket connection opened');
+  };
+
     ws.onmessage = (event) => {
         const newData = JSON.parse(event.data);
         console.log('Received data from websocket:', newData);
@@ -15,12 +19,16 @@ const PreloaderPage = () => {
         console.log(data);
     };
 
+    ws.onerror = (event) => {
+      console.error('WebSocket error observed:', event);
+    };
+
     console.log(data);
     
 
-    return () => {
-        ws.close();
-    };
+    // return () => {
+    //     ws.close();
+    // };
 }, []);
 
 
