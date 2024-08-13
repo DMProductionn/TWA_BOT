@@ -1,7 +1,6 @@
 import Search from '../widgets/DealsPage/Search';
 import User from '../widgets/DealsPage/User';
 import style from '../app/css/Deals/Users/users.module.css';
-import Refresh from '../features/Refresh';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../app/redux/store';
 
@@ -21,7 +20,6 @@ const Deals = () => {
           <User />
         </div>
       </div>
-      <Refresh />
     </div>
   );
 };

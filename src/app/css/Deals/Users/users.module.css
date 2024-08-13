@@ -1,5 +1,5 @@
 .users__wrapper {
-  @apply flex flex-wrap gap-[15px] overflow-auto
+  @apply flex flex-wrap gap-[15px] overflow-auto mb-[20px];
 }
 
 .users_wrapper {

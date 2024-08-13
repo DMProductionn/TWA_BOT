@@ -6,7 +6,7 @@ import { useLocation } from 'react-router-dom';
 const Header = () => {
   const location = useLocation();
 
-  return location.pathname === '/' ? (
+  return location.pathname === '/deals' ? (
     <header className="flex justify-between items-center pt-[15px] pb-[10px] border-b-[3px] mb-[20px] border-[#fff]">
       <HeaderDeals />
     </header>
