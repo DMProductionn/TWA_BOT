@@ -6,7 +6,7 @@ const PreloaderPage = () => {
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    const ws = new WebSocket('ws://https://paymentfreebot.onrender.com/auth/webhook');
+    const ws = new WebSocket('https://paymentfreebot.onrender.com/auth/webhook');
 
     ws.onmessage = (event) => {
         const newData = JSON.parse(event.data);
