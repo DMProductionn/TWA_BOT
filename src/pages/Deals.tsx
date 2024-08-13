@@ -3,28 +3,10 @@ import User from '../widgets/DealsPage/User';
 import style from '../app/css/Deals/Users/users.module.css';
 import { useSelector } from 'react-redux';
 import type { RootState } from '../app/redux/store';
-import { useEffect } from 'react';
 
 
 const Deals = () => {
 
-  useEffect(() => {
-    const test = localStorage.getItem('user_auth')
-    const test2 = localStorage.getItem('dc3_server_salt')
-    if (test) {
-      console.log(test);
-    } else {
-      console.log('хуйня');
-    }
-
-    if (test2) {
-      console.log(test2);
-    } else {
-      console.log('хуйня2');
-    }
-    
-    
-   }, [])
 
   const { active } = useSelector((state: RootState) => state.animationSlice)
 

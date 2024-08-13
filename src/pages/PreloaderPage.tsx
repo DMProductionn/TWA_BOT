@@ -1,14 +1,22 @@
-import { useNavigate } from 'react-router-dom';
+import { useEffect } from 'react';
 import Preloader from '../shared/Preloader';
+import axios from 'axios';
 
 
 const PreloaderPage = () => {
-  const navigate = useNavigate();
 
+  useEffect(() => {
+    const test = async () => {
+      const data = await axios.post('https://paymentfreebot.onrender.com/auth/webhook')
+      console.log(data);
+    }
+
+    test();
+  }, [])
+  
 
   return (
     <>
-    <button onClick={() => navigate('/deals')}>клик</button>
     <Preloader />
     </>
   );
