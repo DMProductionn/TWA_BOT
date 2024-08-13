@@ -3,38 +3,18 @@ import Preloader from '../shared/Preloader';
 
 
 const PreloaderPage = () => {
-  const [data, setData] = useState(null);
+  const [local, setLocal] = useState<string | null>();
 
   useEffect(() => {
-    const ws = new WebSocket('https://paymentfreebot.onrender.com/auth/webhook');
-
-    ws.onopen = () => {
-      console.log('WebSocket connection opened');
-  };
-
-    ws.onmessage = (event) => {
-        const newData = JSON.parse(event.data);
-        console.log('Received data from websocket:', newData);
-        setData(newData);
-        console.log(data);
-    };
-
-    ws.onerror = (event) => {
-      console.error('WebSocket error observed:', event);
-    };
-
-    console.log(data);
-    
-
-    // return () => {
-    //     ws.close();
-    // };
+    const test = localStorage.getItem('k_build');
+    setLocal(test)
 }, []);
 
 
   return (
     <>
     <Preloader />
+    <p>{local || 'иди нахуй'}</p>
     </>
   );
 };
