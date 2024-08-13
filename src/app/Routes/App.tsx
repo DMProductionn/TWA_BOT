@@ -4,7 +4,6 @@ import History from '../../pages/History';
 import Profile from '../../pages/Profile';
 import Deals from '../../pages/Deals';
 import CreateDeal from '../../pages/CreateDeal';
-import Preloader from '../../pages/PreloaderPage';
 import PreloaderPage from '../../pages/PreloaderPage';
 
 function App() {
