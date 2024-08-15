@@ -1,16 +1,21 @@
+import React from "react";
 
+type TypeDealsActiveProps = {
+  first_name: string
+  sum: string
+}
 
-const ActiveDeals = ({}) => {
+const ActiveDeals: React.FC<TypeDealsActiveProps> = ({first_name, sum}) => {
 
   return (
     <>
       <div className="bg-blue-dark w-full py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
         <div className="flex flex-col items-center">
           <div className="w-[25px] h-[25px] bg-white rounded-[50%]"></div>
-          <p className="text-[13px]">Gem4ik01</p>
+          <p className="text-[13px]">{first_name}</p>
         </div>
         <div className="flex items-center gap-[20px]">
-          <p className="text-[18px]">10.000P</p>
+          <p className="text-[18px]">{sum}P</p>
           <div className="flex flex-col items-center mt-[10px]">
             <svg
               width="20"

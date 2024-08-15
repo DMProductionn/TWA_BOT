@@ -31,7 +31,7 @@ const Profile = () => {
           ) : valueTabsProfile === 'активно' ? (
             <>
               {data?.map((deal: IDeal) => (
-                <ActiveDeals key={deal.id} {...deal.user_user_for} />
+                <ActiveDeals key={deal.id} {...deal.user_user_for} sum={deal.sum}/>
               ))}
             </>
           ) : valueTabsProfile === 'в ожидании' && (
