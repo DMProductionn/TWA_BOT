@@ -14,7 +14,11 @@ const TabsProfile = () => {
   const onClickButton = (tab: string, index: number) => {
     setIndexTab(index);
     localStorage.setItem('indexTabProfile', JSON.stringify(index));
-    dispatch(setValueTabsProfile(tab));
+    if (tab === 'Активные сделки') {
+      dispatch(setValueTabsProfile('активно'));
+    } else {
+      dispatch(setValueTabsProfile('в ожидании'));
+    }
   };
 
   return (

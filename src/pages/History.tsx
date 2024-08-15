@@ -9,18 +9,18 @@ const History = () => {
   const { valueTabsHistory } = useSelector((state: RootState) => state.tabsSlice);
 
   return (
-    <>
+    <div className='p-[15px]'>
       <Tabs />
-      <div className=" ">
-        {valueTabsHistory === 'Отмененные' ? (
+      <div>
+        {valueTabsHistory === 'отменено' ? (
           <CanceledBlock />
-        ) : valueTabsHistory === 'Завершенные' ? (
+        ) : valueTabsHistory === 'завершено' ? (
           <CompletedBlock />
         ) : (
           <AllBlocks />
         )}
       </div>
-    </>
+    </div>
   );
 };
 

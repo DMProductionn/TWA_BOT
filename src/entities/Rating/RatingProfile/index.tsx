@@ -1,9 +1,11 @@
-const RatingProfile = () => {
+import React from "react";
+
+const RatingProfile: React.FC<{rating: number}> = ({rating}) => {
   return (
-    <div className="w-full bg-blue-medium px-[10px] py-[8px] mt-[25px] mb-[5px] flex justify-between items-center rounded-t-[4px]">
+    <div className="px-[10px] py-[8px] mb-[5px] flex justify-between items-center border-b-[15px] border-blue-dark">
       <p>Рейтинг</p>
       <div className="flex gap-[25px] items-center">
-        <p>4.0</p>
+        <p>{rating}</p>
         <div className="flex gap-[3px]">
           <svg
             width="18"

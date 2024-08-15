@@ -1,7 +1,9 @@
-const RatingUser = () => {
+import React from "react"
+
+const RatingUser: React.FC<{rating: number}> = ({rating}) => {
   return (
-    <div className="flex items-center gap-[10px]">
-        <p>4.0</p>
+    <div className="flex items-center gap-[10px] mt-[2px]">
+        <p>{rating}</p>
         <div className="flex gap-[3px]">
           <svg
             width="10"

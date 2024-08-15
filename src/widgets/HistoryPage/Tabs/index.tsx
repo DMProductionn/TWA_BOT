@@ -14,7 +14,13 @@ const Tabs = () => {
   const onClickButton = (tab: string, index: number) => {
     setIndexTab(index);
     localStorage.setItem('indexTabHistory', JSON.stringify(index));
-    dispatch(setValueTabsHistory(tab));
+    if (tab === 'Отмененные') {
+      dispatch(setValueTabsHistory('отменено'));
+    } else if (tab === 'Все') {
+      dispatch(setValueTabsHistory('все'));
+    } else {
+      dispatch(setValueTabsHistory('завершено'));
+    }
   };
 
   return (

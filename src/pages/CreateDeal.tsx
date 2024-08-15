@@ -12,9 +12,7 @@ const CreateDeal = () => {
 
   return (
     <div
-      className={`w-full bg-blue-medium h-[500px] rounded-[4px] create-deal-block ${
-        active ? 'go-left' : ''
-      }`}>
+      className={`w-full bg-blue-medium h-[500px] rounded-[4px] create-deal-block ${active ? 'go-left' : ''}`}>
       DealsPage
     </div>
   );

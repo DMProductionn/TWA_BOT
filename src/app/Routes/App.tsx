@@ -5,6 +5,7 @@ import Profile from '../../pages/Profile';
 import Deals from '../../pages/Deals';
 import CreateDeal from '../../pages/CreateDeal';
 import PreloaderPage from '../../pages/PreloaderPage';
+import HistoryBalance from '../../pages/HistoryBalance';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
           <Route index path='/deals' element={<Deals />} />
           <Route path='/history' element={<History />} />
           <Route path='/profile' element={<Profile />} />
+          <Route path='/history-balance' element={<HistoryBalance />} />
           <Route path='/create-deal/gem4ik01' element={<CreateDeal />} />
           <Route path="*" element={<div>404</div>} />
           </Route>

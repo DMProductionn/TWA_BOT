@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const http = axios.create({
+const https = axios.create({
   baseURL: 'http://localhost:8000',
   withCredentials: true
 })
 
-export default http
+export default https
