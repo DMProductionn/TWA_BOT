@@ -16,8 +16,8 @@ const PreloaderPage = () => {
   const dispatch: AppDispatch = useDispatch();
   const { mutate, isSuccess: isTokenSuccess } = useAddToken();
   const { data: usersAll, isSuccess: isUsersAllSuccess } = useGetUsersAll();
-  const { data: usersMe, isSuccess: isUsersMeSuccess } = useGetUsersMe();
-  const { isSuccess: isTransactionsSuccess } = useGetTransactions();
+  const { data: usersMe, isSuccess: isUsersMeSuccess, refetch: refetchUsersMe } = useGetUsersMe();
+  const { isSuccess: isTransactionsSuccess, refetch: refetchTransactions } = useGetTransactions();
 
   useEffect(() => {
     const chat_id = { chat_id: 860133375 };
@@ -27,6 +27,13 @@ const PreloaderPage = () => {
   useEffect(() => {
     if (chatId) {
       mutate(chatId);
+    }
+  }, [chatId, mutate]);
+
+  useEffect(() => {
+    if (isTokenSuccess) {
+      refetchTransactions();
+      refetchUsersMe();
     }
   }, [chatId, mutate]);
 
