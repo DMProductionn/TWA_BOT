@@ -11,3 +11,10 @@ export const getUsersMe = async () => {
   console.log(res.data);
   return res.data;
 };
+
+
+export const getUserSearch = async (search: string | null) => {
+  const res = await https.get(`/auth/search/${search}`);
+  console.log(res.data);
+  return res.data;
+};

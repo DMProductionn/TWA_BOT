@@ -1,21 +1,15 @@
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../../app/redux/store';
 import { setActive } from '../../app/redux/Slices/animation.slice';
-import { useNavigate } from 'react-router-dom';
+import React from 'react';
+import { setUsersFirstName } from '../../app/redux/Slices/users.slice';
 
-const CreateDeal = () => {
+const CreateDeal: React.FC<{firstName: string}> = ({ firstName }) => {
   const dispatch: AppDispatch = useDispatch();
-  const navigate = useNavigate();
 
   const onClickCreateDeal = () => {
     dispatch(setActive(true));
-    setTimeout(() => {
-      navigate('/create-deal/gem4ik01')
-    }, 250);
-
-    setTimeout(() => {
-      dispatch(setActive(false));
-    }, 500);
+    dispatch(setUsersFirstName(firstName));
   }
 
   return (

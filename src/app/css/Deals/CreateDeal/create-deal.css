@@ -1,9 +1,9 @@
 .create-deal-block {
-  transition: all 0.5s ease-in-out;
+  transition: all 0.3s ease-in-out;
   position: absolute;
-  left: 2000px;
+  left: 600px;
 }
 
 .create-deal-block.go-left {
-  left: 0px
+  left: 400px
 }

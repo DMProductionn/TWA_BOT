@@ -3,11 +3,13 @@ import type { PayloadAction } from '@reduxjs/toolkit'
 import type { TypeUser} from '../../types/Deals/user.type'
 
 export interface usersState {
-  users: TypeUser[] | null
+  users: TypeUser[] | null,
+  usersFirstName: string
 }
 
 const initialState: usersState = {
-  users: null
+  users: null,
+  usersFirstName: ''
 }
 
 export const usersSlice = createSlice({
@@ -16,12 +18,15 @@ export const usersSlice = createSlice({
   reducers: {
     setUsers: (state, action: PayloadAction<TypeUser[] | null>) => {
       state.users = action.payload
+    },
+    setUsersFirstName: (state, action: PayloadAction<string>) => {
+      state.usersFirstName = action.payload
     }
   },
 })
 
 
-export const { setUsers } = usersSlice.actions
+export const { setUsers, setUsersFirstName } = usersSlice.actions
 
 export default usersSlice.reducer
 

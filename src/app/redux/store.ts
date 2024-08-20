@@ -14,19 +14,21 @@ import tabsSlice from './Slices/tabs.slice';
 import animationSlice from './Slices/animation.slice';
 import profileSlice from './Slices/profile.slice';
 import usersSlice from './Slices/users.slice';
+import searchSlice from './Slices/search.slice';
 
 const rootReducer = combineReducers({
   tabsSlice,
   animationSlice,
   usersSlice,
   profileSlice,
+  searchSlice
 });
 
 const persistConfig = {
   key: 'root',
   storage,
   whitelist: ['tabsSlice', 'usersSlice', 'profileSlice'], // что хотим сохранять
-  blacklist: ['animationSlice'], // не хотим сохранять
+  blacklist: ['animationSlice', 'searchSlice'], // не хотим сохранять
 };
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);

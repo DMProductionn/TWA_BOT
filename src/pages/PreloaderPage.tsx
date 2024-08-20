@@ -20,7 +20,7 @@ const PreloaderPage = () => {
   const { isSuccess: isTransactionsSuccess, } = useGetTransactions();
 
   useEffect(() => {
-    const chat_id = { chat_id: 860133375 };
+    const chat_id = { chat_id: 968658554 };
     setChatId(chat_id);
   }, []);
 
@@ -39,9 +39,9 @@ const PreloaderPage = () => {
   }, [isTokenSuccess, isUsersAllSuccess, isUsersMeSuccess, isTransactionsSuccess, navigate]);
 
   return (
-    <>
+    <div className='w-full h-[100vh] flex justify-center items-center'>
       <Preloader />
-    </>
+    </div>
   );
 };
 
