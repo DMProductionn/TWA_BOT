@@ -1,8 +1,7 @@
-import useGetPaymentHistory from "../app/hooks/Payment/useGetPaymentHistory"
 
 const HistoryBalance = () => {
 
-  const { data } = useGetPaymentHistory()
+  // const { data } = useGetPaymentHistory()
 
   return (
     <div className="">

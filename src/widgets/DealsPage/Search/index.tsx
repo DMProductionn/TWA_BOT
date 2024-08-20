@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch } from "react-redux";
 import type { AppDispatch } from "../../../app/redux/store";
 import { setSearch } from "../../../app/redux/Slices/search.slice";

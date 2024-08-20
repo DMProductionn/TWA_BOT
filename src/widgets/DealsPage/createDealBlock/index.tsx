@@ -1,5 +1,5 @@
 import { useSelector } from "react-redux"
-import { RootState } from "../../../app/redux/store";
+import type { RootState } from "../../../app/redux/store";
 import '../../../app/css/Deals/CreateDeal/create-deal.css'
 
 const CreateDealBlock = () => {
