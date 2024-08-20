@@ -9,7 +9,7 @@ const CreateDealBlock = () => {
   
 
   return (
-    <div className={`${active ? 'go-left' : ''} bg-blue-medium absolute z-[9] -bottom-[148px] w-full h-[400px] py-[10px] rounded-[4px] px-[15px] create-deal-block`}>
+    <div className={`${active ? 'go-left' : ''} bg-blue-medium absolute z-[9] -top-[50px] w-full h-[400px] py-[10px] rounded-[4px] px-[15px] create-deal-block`}>
       <p className="w-full text-center mb-[100px]">Сделка с {usersFirstName}</p>
       <div className="w-full text-center mb-[60px]">
         <p className="w-full text-center mb-[20px]">Введите сумму сделки в рублях</p>
