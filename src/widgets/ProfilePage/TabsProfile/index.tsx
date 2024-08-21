@@ -1,5 +1,5 @@
-import { useDispatch, useSelector } from 'react-redux';
-import type { AppDispatch, RootState } from '../../../app/redux/store';
+import { useDispatch } from 'react-redux';
+import type { AppDispatch } from '../../../app/redux/store';
 import React, { useState } from 'react';
 import { setValueTabsProfile } from '../../../app/redux/Slices/tabs.slice';
 import '../../../app/css/Profile/Tabs/tabs-profile.css';
