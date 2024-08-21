@@ -1,10 +1,10 @@
-import { useDispatch } from 'react-redux';
-import { AppDispatch } from '../../../app/redux/store';
-import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import type { AppDispatch, RootState } from '../../../app/redux/store';
+import React, { useState } from 'react';
 import { setValueTabsProfile } from '../../../app/redux/Slices/tabs.slice';
 import '../../../app/css/Profile/Tabs/tabs-profile.css';
 
-const TabsProfile = () => {
+const TabsProfile: React.FC<{ countDealsPending: number, countDealsActive: number }> = ({countDealsPending, countDealsActive}) => {
   const dispatch: AppDispatch = useDispatch();
   const [indexTab, setIndexTab] = useState(
     JSON.parse(localStorage.getItem('indexTabProfile') || '0'),
@@ -20,15 +20,16 @@ const TabsProfile = () => {
       dispatch(setValueTabsProfile('в ожидании'));
     }
   };
+  
 
   return (
     <>
       <div className="wrapper__tabs-profile pr-[8px] flex justify-between items-center relative">
         <div className="w-[16px] h-[16px] absolute left-[120px] top-[10px] rounded-[50%] bg-[#00E577] flex justify-center items-center text-[12px] font-[600]">
-          5
+          {countDealsPending}
         </div>
         <div className="w-[16px] h-[16px] absolute -right-[9px] top-[10px] rounded-[50%] bg-[#FFB800] flex justify-center items-center text-[12px] font-[600]">
-          1
+        {countDealsActive}
         </div>
         {tabs.map((tab, index) => (
           <button

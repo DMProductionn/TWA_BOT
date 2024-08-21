@@ -1,19 +1,29 @@
 import React from 'react';
-import useGetTransactionsWithStatus from '../../../../app/hooks/History/useGetTransitionsWithStatus';
 import NoDeals from '../../../../shared/NoDeals';
-import { IDeal } from '../../../../app/types/Deals/deal.type';
+import type { IDeal } from '../../../../app/types/Deals/deal.type';
+import type { AppDispatch } from '../../../../app/redux/store';
+import { useDispatch } from 'react-redux';
+import { setActiveLeftProfile, setActiveRightProfile } from '../../../../app/redux/Slices/animation.slice';
 
-const ActiveDeals: React.FC = () => {
-  const { data } = useGetTransactionsWithStatus('активно');
+const ActiveDeals: React.FC<{activeTransitions: IDeal[]}> = ({activeTransitions}) => {
+  const dispatch: AppDispatch = useDispatch();
+  
+
+  const onClickDeal = () => {
+    dispatch(setActiveLeftProfile(true));
+    dispatch(setActiveRightProfile(false));
+  }
+  
 
   return (
     <>
-      {data?.length === 0 ? (
+      {activeTransitions?.length === 0 ? (
         <NoDeals />
       ) : (
-        data?.map((deal: IDeal) => {
+        activeTransitions?.map((deal: IDeal) => {
           return (
             <div
+              onClick={onClickDeal}
               key={deal.id}
               className="bg-blue-dark w-full py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
               <div className="flex flex-col items-center">

@@ -11,8 +11,8 @@ type TypeUserProps = {
   username: string;
 };
 
-const User: React.FC<TypeUserProps> = ({ first_name, is_premium, rating }) => {
-
+const User: React.FC<TypeUserProps> = ({ id, first_name, is_premium, rating }) => {
+  
 
   return (
     <div className="bg-blue-medium w-[170px] h-[155px] rounded-[4px] py-[15px] px-[10px] flex items-center flex-col">
@@ -28,7 +28,7 @@ const User: React.FC<TypeUserProps> = ({ first_name, is_premium, rating }) => {
         <p className="text-[16px] leading-[90%]">{first_name}</p>
       </div>
       <RatingUser rating={rating} />
-      <CreateDeal firstName={first_name}/>
+      <CreateDeal firstName={first_name} user_for={id}/>
     </div>
   );
 };

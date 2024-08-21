@@ -9,7 +9,7 @@ import Preloader from '../shared/Preloader';
 import CreateDealBlock from '../widgets/DealsPage/createDealBlock';
 
 const Deals = () => {
-  const { active } = useSelector((state: RootState) => state.animationSlice);
+  const { active, activeRight } = useSelector((state: RootState) => state.animationSlice);
   const { users } = useSelector((state: RootState) => state.usersSlice);
   const { search } = useSelector((state: RootState) => state.searchSlice);
 
@@ -20,10 +20,11 @@ const Deals = () => {
       refetch();
     }
   }, [search, refetch]);
+  
 
   return (
     <>
-      <div className={active ? style.users_wrapper : ''}>
+      <div className={active ? style.users_wrapper : activeRight && style.users_wrapper_static}>
         <div className="max-h-[400px] overflow-auto">
         <CreateDealBlock />
           <div className={style.users__wrapper}>

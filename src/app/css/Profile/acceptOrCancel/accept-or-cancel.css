@@ -1,0 +1,13 @@
+.create-deal-block-profile {
+  transition: all 0.3s ease-in-out;
+  position: absolute;
+  left: 600px;
+}
+
+.create-deal-block-profile.go-left-profile {
+  left: 0px
+}
+
+.create-deal-block-profile.go-right-profile {
+  left: 800px
+}

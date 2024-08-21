@@ -1,15 +1,17 @@
 import { useDispatch } from 'react-redux';
 import type { AppDispatch } from '../../app/redux/store';
-import { setActive } from '../../app/redux/Slices/animation.slice';
+import { setActive, setActiveRight } from '../../app/redux/Slices/animation.slice';
 import React from 'react';
-import { setUsersFirstName } from '../../app/redux/Slices/users.slice';
+import { setUsersFirstName, setUsersId } from '../../app/redux/Slices/users.slice';
 
-const CreateDeal: React.FC<{firstName: string}> = ({ firstName }) => {
+const CreateDeal: React.FC<{firstName: string, user_for: string}> = ({ firstName, user_for }) => {
   const dispatch: AppDispatch = useDispatch();
 
   const onClickCreateDeal = () => {
     dispatch(setActive(true));
+    dispatch(setActiveRight(false))
     dispatch(setUsersFirstName(firstName));
+    dispatch(setUsersId(user_for))
   }
 
   return (
