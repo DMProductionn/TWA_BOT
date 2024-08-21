@@ -20,7 +20,7 @@ const CreateDealBlock = () => {
     <div
       className={`${
         active ? 'go-left' : ''
-      } bg-blue-medium absolute z-[9] -top-[50px] w-full h-[400px] py-[10px] rounded-[4px] px-[15px] create-deal-block ${activeRight && 'go-right'}`}>
+      } bg-blue-medium absolute z-[9] -top-[50px] w-full h-[500px] py-[10px] rounded-[4px] px-[15px] create-deal-block ${activeRight && 'go-right'}`}>
         <button onClick={() => (dispatch(setActiveRight(true)), dispatch(setActive(false)))}>назад</button>
       {isPending ? (
         <div className="w-full h-full flex justify-center items-center">

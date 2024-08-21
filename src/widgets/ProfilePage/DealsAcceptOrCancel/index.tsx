@@ -18,7 +18,7 @@ const DealsAcceptOrCancel: React.FC = () => {
     <div
       className={`${
         activeLeftProfile ? 'go-left-profile' : ''
-      } bg-blue-medium absolute z-[99] -top-[5px] w-full h-[600px] py-[10px] rounded-[4px] px-[15px] create-deal-block-profile ${
+      } bg-blue-medium absolute z-[99] -top-[10px] w-full h-[600px] py-[10px] rounded-[4px] px-[15px] create-deal-block-profile ${
         activeRightProfile && 'go-right-profile'
       }`}>
       <div className="flex justify-between">

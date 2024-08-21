@@ -25,7 +25,7 @@ const ActiveDeals: React.FC<{activeTransitions: IDeal[]}> = ({activeTransitions}
             <div
               onClick={onClickDeal}
               key={deal.id}
-              className="bg-blue-dark w-full py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
+              className="bg-blue-dark w-full cursor-pointer py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
               <div className="flex flex-col items-center">
                 <div className="w-[25px] h-[25px] bg-white rounded-[50%]"></div>
                 <p className="text-[13px]">{deal.user_initiator.first_name}</p>
