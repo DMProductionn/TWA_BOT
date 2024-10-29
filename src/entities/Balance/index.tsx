@@ -1,8 +1,11 @@
+import useGetUsersMe from '../../app/hooks/Users/useGetUsersMe';
 
 const Balance = () => {
-  return (
-    <p className="text-[20px]">10.000P</p>
-  )
-}
+  const { data } = useGetUsersMe();
+  console.log(data);
+  
 
-export default Balance
+  return <p className="text-[20px]">{data && data?.balance + 'р'}</p>;
+};
+
+export default Balance;

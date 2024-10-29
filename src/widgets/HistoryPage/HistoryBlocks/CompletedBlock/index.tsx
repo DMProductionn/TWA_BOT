@@ -9,7 +9,7 @@ const CompletedBlock: React.FC<{ transitionsCompleted: IDeal[] }> = ({ transitio
       ) : (
         transitionsCompleted?.map((deal: IDeal) => {
           return (
-            <div className="bg-blue-dark w-full py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
+            <div key={deal.id} className="bg-blue-dark w-full py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
               <div className="flex flex-col items-center">
                 <div className="w-[25px] h-[25px] bg-white rounded-[50%]"></div>
                 <p className="text-[13px]">{deal.user_initiator.first_name}</p>

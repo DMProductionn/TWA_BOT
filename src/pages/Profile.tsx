@@ -9,6 +9,7 @@ import DealsAcceptOrCancel from '../widgets/ProfilePage/DealsAcceptOrCancel';
 import useGetTransactions from '../app/hooks/History/useGetTransactions';
 import { useEffect, useState } from 'react';
 import type { IDeal } from '../app/types/Deals/deal.type';
+import Notification from '../widgets/ProfilePage/Notification';
 
 const Profile = () => {
   const { valueTabsProfile } = useSelector((state: RootState) => state.tabsSlice);
@@ -19,24 +20,31 @@ const Profile = () => {
 
   useEffect(() => {
     if (data) {
-      setActiveTransitions(data?.filter((deal: IDeal) => deal.status === 'активно'))
-      setPendingTransitions(data?.filter((deal: IDeal) => deal.status === 'в ожидании'))
+      setActiveTransitions(data?.filter((deal: IDeal) => deal.status === 'активно'));
+      setPendingTransitions(data?.filter((deal: IDeal) => deal.status === 'в ожидании'));
     }
   }, [data]);
 
-
   return (
     <>
-    <DealsAcceptOrCancel />
+      <DealsAcceptOrCancel />
       <UserData
         first_name={profileInfo?.first_name}
         is_premium={profileInfo?.is_premium ?? false}
       />
-      <RatingProfile rating={profileInfo?.rating ?? 0} />
+      <RatingProfile rating={profileInfo?.rating ?? 5.0} />
+      <Notification />
       <div className="bg-blue-medium h-[350px] px-[20px] mb-[20px] rounded-b-[4px] overflow-auto pb-[15px]">
-        <TabsProfile countDealsPending={activeTransitions.length} countDealsActive={pendingTransitions.length}/>
+        <TabsProfile
+          countDealsPending={activeTransitions.length}
+          countDealsActive={pendingTransitions.length}
+        />
         <div className="flex flex-col gap-[20px]">
-          {valueTabsProfile === 'активно' ? <ActiveDeals activeTransitions={activeTransitions}/> : <DealsPending pendingTransitions={pendingTransitions} />}
+          {valueTabsProfile === 'активно' ? (
+            <ActiveDeals activeTransitions={activeTransitions} />
+          ) : (
+            <DealsPending pendingTransitions={pendingTransitions} />
+          )}
         </div>
       </div>
     </>

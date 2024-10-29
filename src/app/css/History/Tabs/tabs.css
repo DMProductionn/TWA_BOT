@@ -137,4 +137,11 @@
 }
 
 
+@media screen and (max-width: 340px) {
+  .item-link {
+    font-size: 14px;
+  }
+}
+
+
  

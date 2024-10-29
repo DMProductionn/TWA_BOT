@@ -12,24 +12,39 @@ type TypeUserProps = {
 };
 
 const User: React.FC<TypeUserProps> = ({ id, first_name, is_premium, rating }) => {
-  
-
   return (
-    <div className="bg-blue-medium w-[170px] h-[155px] rounded-[4px] py-[15px] px-[10px] flex items-center flex-col">
-      <div className="relative flex flex-col items-center">
-        <div className="bg-[#FFFFFF] mb-[5px] rounded-[50%] w-[50px] h-[50px] flex justify-center items-center overflow-hidden relative">
-          <img className="w-full h-full object-cover" src="./img/test.png" alt="img-profile" />
+    <>
+      <div className="bg-blue-medium max-w-[170px] w-full h-[155px] rounded-[4px] py-[15px] px-[10px] flex items-center flex-col">
+        <div className="relative flex flex-col items-center">
+          <div className="bg-[#FFFFFF] mb-[5px] rounded-[50%] w-[50px] h-[50px] flex justify-center items-center overflow-hidden relative">
+            <img className="w-full h-full object-cover" src="./img/test.png" alt="img-profile" />
+          </div>
+          {is_premium ? (
+            <p className="text-[10px] text-blue-super-light absolute -top-[10px] -right-[30px]">
+              Premium
+            </p>
+          ) : null}
+          <p className="text-[16px] leading-[90%]">{first_name}</p>
         </div>
-        {is_premium ? (
-          <p className="text-[10px] text-blue-super-light absolute -top-[10px] -right-[30px]">
-            Premium
-          </p>
-        ) : null}
-        <p className="text-[16px] leading-[90%]">{first_name}</p>
+        <RatingUser rating={rating} />
+        <CreateDeal firstName={first_name} user_for={id} />
       </div>
-      <RatingUser rating={rating} />
-      <CreateDeal firstName={first_name} user_for={id}/>
-    </div>
+      <div className="bg-blue-medium max-w-[170px] w-full h-[155px] rounded-[4px] py-[15px] px-[10px] flex items-center flex-col">
+        <div className="relative flex flex-col items-center">
+          <div className="bg-[#FFFFFF] mb-[5px] rounded-[50%] w-[50px] h-[50px] flex justify-center items-center overflow-hidden relative">
+            <img className="w-full h-full object-cover" src="./img/test.png" alt="img-profile" />
+          </div>
+          {is_premium ? (
+            <p className="text-[10px] text-blue-super-light absolute -top-[10px] -right-[30px]">
+              Premium
+            </p>
+          ) : null}
+          <p className="text-[16px] leading-[90%]">{first_name}</p>
+        </div>
+        <RatingUser rating={rating} />
+        <CreateDeal firstName={first_name} user_for={id} />
+      </div>
+    </>
   );
 };
 

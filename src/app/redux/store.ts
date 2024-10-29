@@ -15,19 +15,21 @@ import animationSlice from './Slices/animation.slice';
 import profileSlice from './Slices/profile.slice';
 import usersSlice from './Slices/users.slice';
 import searchSlice from './Slices/search.slice';
+import dealDetailSlice from './Slices/dealdetail.slice';
 
 const rootReducer = combineReducers({
   tabsSlice,
   animationSlice,
   usersSlice,
   profileSlice,
-  searchSlice
+  searchSlice,
+  dealDetailSlice
 });
 
 const persistConfig = {
   key: 'root',
   storage,
-  whitelist: ['tabsSlice', 'usersSlice', 'profileSlice'], // что хотим сохранять
+  whitelist: ['tabsSlice', 'usersSlice', 'profileSlice', 'dealDetailSlice'], // что хотим сохранять
   blacklist: ['animationSlice', 'searchSlice'], // не хотим сохранять
 };
 

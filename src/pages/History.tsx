@@ -26,7 +26,7 @@ const History = () => {
   
 
   return (
-    <div className='p-[15px]'>
+    <div className='p-[15px] max-h-[585px] overflow-auto'>
       <Tabs />
       <div className='flex flex-col gap-[15px]'>
         {valueTabsHistory === 'отменено' ? (
