@@ -12,7 +12,7 @@ function App() {
     <>
       {
         <Routes>
-          <Route path="/" element={<Layout />}>
+          <Route path="/token/:token" element={<Layout />}>
             <Route index path="/token/:token" element={<PreloaderPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/history" element={<History />} />
