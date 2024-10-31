@@ -11,7 +11,7 @@ const Layout = () => {
         <Header />
         <main
           className={
-            location.pathname === '/deals' || location.pathname === '/token/:token'
+            location.pathname === '/deals' || location.pathname === '/'
               ? 'w-full relative mb-[25px] h-[350px]'
               : 'max-w-[1220px] w-full h-[600px] bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative'
           }>
