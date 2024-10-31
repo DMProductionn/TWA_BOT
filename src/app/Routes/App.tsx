@@ -11,8 +11,8 @@ function App() {
     <>
       {
         <Routes>
-          <Route index path="" element={<PreloaderPage />} />
-          <Route path="/token/:token" element={<Layout />}>
+          <Route path="/" element={<Layout />}>
+            <Route index path="/token/:token" element={<PreloaderPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/history" element={<History />} />
             <Route path="/profile" element={<Profile />} />

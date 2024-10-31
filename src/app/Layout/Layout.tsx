@@ -11,14 +11,17 @@ const Layout = () => {
         <Header />
         <main
           className={
-            location.pathname === '/deals' || location.pathname === '/'
+            location.pathname === '/deals' || location.pathname === '/' || location.pathname.includes('/token')
               ? 'w-full relative mb-[25px] h-[350px]'
-              : 'max-w-[1220px] w-full h-[600px] bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative'
+              : 'max-w-[1220px] w-full h-[600px] bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative' 
           }>
           <Outlet />
         </main>
       </div>
-      <Footer />
+      {
+        !location.pathname.includes('/token') &&
+        <Footer />
+      }
     </>
   );
 };
