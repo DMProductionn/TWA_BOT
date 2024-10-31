@@ -18,9 +18,6 @@ const Deals = () => {
 
   const { data, refetch, isLoading } = useGetUserSearch(search || null);
 
-  console.log(data);
-  
-
   useEffect(() => {
     if (search && search.trim() !== '') {
       refetch();
@@ -28,7 +25,7 @@ const Deals = () => {
     setFilteredData(data?.filter((user: TypeUser) => !profileInfo?.id.includes(user.id)));
     setFilterUsers(users?.filter((user: TypeUser) => !profileInfo?.id.includes(user.id)));
   }, [search, refetch, data]);
-
+  
   return (
     <>
       <div className={active ? style.users_wrapper : activeRight ? style.users_wrapper_static : ''}>
