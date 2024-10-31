@@ -5,17 +5,14 @@ import Profile from '../../pages/Profile';
 import Deals from '../../pages/Deals';
 import PreloaderPage from '../../pages/PreloaderPage';
 import HistoryBalance from '../../pages/HistoryBalance';
-import RedirectToToken from '../../pages/RedirectToToken';
 
 function App() {
-
   return (
     <>
       {
         <Routes>
+          <Route index path="/token/:token" element={<PreloaderPage />} />
           <Route path="/" element={<Layout />}>
-            <Route index element={<RedirectToToken />} />
-            <Route path="/token/:token" element={<PreloaderPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/history" element={<History />} />
             <Route path="/profile" element={<Profile />} />
