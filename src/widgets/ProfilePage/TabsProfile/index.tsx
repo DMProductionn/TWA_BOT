@@ -24,7 +24,7 @@ const TabsProfile: React.FC<{ countDealsPending: number, countDealsActive: numbe
 
   return (
     <>
-      <div className="wrapper__tabs-profile pr-[8px] flex justify-between items-center relative">
+      <div className="wrapper__tabs-profile gap-[20px] pr-[8px] flex justify-between items-center relative">
         <div className="w-[16px] h-[16px] absolute left-[120px] top-[10px] rounded-[50%] bg-[#00E577] flex justify-center items-center text-[12px] font-[600]">
           {countDealsPending}
         </div>

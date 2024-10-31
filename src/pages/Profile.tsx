@@ -10,6 +10,7 @@ import useGetTransactions from '../app/hooks/History/useGetTransactions';
 import { useEffect, useState } from 'react';
 import type { IDeal } from '../app/types/Deals/deal.type';
 import Notification from '../widgets/ProfilePage/Notification';
+import style from '../app/css/Profile/main/prodile.module.css';
 
 const Profile = () => {
   const { valueTabsProfile } = useSelector((state: RootState) => state.tabsSlice);
@@ -34,7 +35,7 @@ const Profile = () => {
       />
       <RatingProfile rating={profileInfo?.rating ?? 5.0} />
       <Notification />
-      <div className="bg-blue-medium h-[350px] px-[20px] mb-[20px] rounded-b-[4px] overflow-auto pb-[15px]">
+      <div className={style.profile}>
         <TabsProfile
           countDealsPending={activeTransitions.length}
           countDealsActive={pendingTransitions.length}
