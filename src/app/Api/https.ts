@@ -3,7 +3,7 @@ import axios from "axios";
 const https = axios.create({
   baseURL: 'https://paymentfreebot.onrender.com', 
   headers: {
-    'Authorization': `eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiI5Njg2NTg1NTQifQ.P57B4IgT6OVPYfwgT2apu7B6B2TFW_5i31glrKjXHRw`
+    'Authorization': `${localStorage.getItem('token')}`
   }
 })
 
