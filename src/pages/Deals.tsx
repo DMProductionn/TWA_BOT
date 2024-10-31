@@ -26,7 +26,7 @@ const Deals = () => {
       refetch();
     }
     setFilteredData(data?.filter((user: TypeUser) => !profileInfo?.id.includes(user.id)));
-    setFilterUsers(users?.filter((user: TypeUser) => profileInfo?.id.includes(user.id)));
+    setFilterUsers(users?.filter((user: TypeUser) => !profileInfo?.id.includes(user.id)));
   }, [search, refetch, data]);
 
   return (
