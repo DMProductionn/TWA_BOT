@@ -18,7 +18,7 @@ const PreloaderPage = () => {
   const { data: usersMe, isSuccess: isUsersMeSuccess, } = useGetUsersMe();
   const { isSuccess: isTransactionsSuccess, } = useGetTransactions();
 
-  console.log(token);
+  console.log('TOKEN' + token);
   
   console.log(location.pathname);
   
