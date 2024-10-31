@@ -8,6 +8,8 @@ const RedirectToToken = () => {
     // Получите token из URL
     const token = window.location.pathname.split('/')[2]; // предполагается, что token всегда будет вторым элементом
 
+    console.log("Мы на странице RedirectToToken. Токен: " + token);
+    
     if (token) {
       navigate(`/token/${token}`); // редирект на /token/:token
     }
