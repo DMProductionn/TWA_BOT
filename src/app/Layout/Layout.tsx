@@ -11,7 +11,7 @@ const Layout = () => {
         <Header />
         <main
           className={
-            location.pathname === '/deals' || location.pathname === '/' || location.pathname.includes('/token')
+            location.pathname === '/deals' || location.pathname === '/' || location.pathname.includes('/preloader')
               ? 'w-full relative mb-[25px] h-[350px]'
               : 'max-w-[1220px] w-full h-[600px] bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative' 
           }>
@@ -19,7 +19,7 @@ const Layout = () => {
         </main>
       </div>
       {
-        !location.pathname.includes('/token') &&
+        !location.pathname.includes('/preloader') &&
         <Footer />
       }
     </>

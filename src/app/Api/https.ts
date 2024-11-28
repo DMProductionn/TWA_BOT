@@ -1,10 +1,10 @@
 import axios from "axios";
 
+const token = localStorage.getItem('token');
 const https = axios.create({
   baseURL: 'https://paymentfreebot.onrender.com', 
-  withCredentials: true,
   headers: {
-    'Authorization': `${localStorage.getItem('token')}`
+    'Authorization': `Bearer ${token}`
   }
 })
 
