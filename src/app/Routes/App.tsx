@@ -5,7 +5,6 @@ import Profile from '../../pages/Profile';
 import Deals from '../../pages/Deals';
 import PreloaderPage from '../../pages/PreloaderPage';
 import HistoryBalance from '../../pages/HistoryBalance';
-import GetTokenPage from '../../pages/GetTokenPage';
 
 function App() {
   return (
@@ -13,8 +12,7 @@ function App() {
       {
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index path="/" element={<GetTokenPage />} />
-            <Route path="/preloader" element={<PreloaderPage />} />
+            <Route index path="/" element={<PreloaderPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/history" element={<History />} />
             <Route path="/profile" element={<Profile />} />
