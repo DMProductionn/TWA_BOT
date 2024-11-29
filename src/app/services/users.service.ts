@@ -12,7 +12,6 @@ export const getUsersMe = async () => {
   return res.data;
 };
 
-
 export const getUserSearch = async (search: string | null) => {
   const res = await https.get(`/auth/search/${search}`);
   console.log(res.data);

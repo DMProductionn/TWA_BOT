@@ -1,14 +1,23 @@
-import axios from "axios";
+import axios from 'axios';
 
-const token = localStorage.getItem('token');
 const https = axios.create({
-  baseURL: 'https://paymentfreebot.onrender.com', 
-  headers: {
-    'Authorization': `Bearer ${token}`
-  }
-})
+  baseURL: 'https://paymentfreebot.onrender.com',
+});
 
-export default https
+https.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers['Authorization'] = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  },
+);
+
+export default https;
 
 // https://paymentfreebot.onrender.com
 // http://localhost:8000
