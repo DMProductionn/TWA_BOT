@@ -21,19 +21,17 @@ const PreloaderPage: React.FC = () => {
   const { mutate: getToken, data: tokenData, isSuccess: isTokenSuccess } = useGetToken();
 
   const username = {
-    username: userName
-  }
-    
+    username: userName,
+  };
+
   useEffect(() => {
     if (userName) {
       getToken(username);
     }
-    if (isTokenSuccess) {
-      localStorage.setItem('token', tokenData.token);
-    }
   }, [userName, getToken]);
 
   useEffect(() => {
+    localStorage.setItem('token', tokenData?.token);
     if (isUsersAllSuccess) {
       dispatch(setUsers(usersAll));
     }
