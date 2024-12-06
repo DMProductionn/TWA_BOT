@@ -13,6 +13,7 @@ import useCanceledDeal from '../../../app/hooks/Deals/useCanceledDeal';
 import useAcceptDeal from '../../../app/hooks/Deals/useAcceptDeal';
 import animation from '../../../../public/img/icons/1.json';
 import Lottie from 'lottie-react';
+import useCompletionDeal from '../../../app/hooks/Deals/useCompletionDeal';
 
 const DealsAcceptOrCancel: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -21,6 +22,14 @@ const DealsAcceptOrCancel: React.FC = () => {
   );
   const { valueTabsProfile } = useSelector((state: RootState) => state.tabsSlice);
   const { dealDetail } = useSelector((state: RootState) => state.dealDetailSlice);
+  
+
+  const {
+    mutate: mutateCompletion,
+    isPending: isPendingCompletion,
+    isSuccess: isSuccessCompletion,
+  } = useCompletionDeal();
+
   const {
     mutate: mutateCancel,
     isPending: isPendingCancel,
@@ -34,20 +43,19 @@ const DealsAcceptOrCancel: React.FC = () => {
     isError: isErrorAccept,
   } = useAcceptDeal();
 
- 
   const [showAnimation, setShowAnimation] = useState(false);
 
   useEffect(() => {
-    if (isSuccessAccept || isSuccessCancel) {
-      setShowAnimation(true); 
+    if (isSuccessAccept || isSuccessCancel || isSuccessCompletion) {
+      setShowAnimation(true);
       const timer = setTimeout(() => {
         dispatch(setActiveLeftProfile(false));
         dispatch(setActiveRightProfile(false));
-        setShowAnimation(false); 
+        setShowAnimation(false);
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [isSuccessAccept, isSuccessCancel]);
+  }, [isSuccessAccept, isSuccessCancel, isSuccessCompletion]);
 
   return (
     <div
@@ -79,7 +87,7 @@ const DealsAcceptOrCancel: React.FC = () => {
           {valueTabsProfile === 'активно' ? 'Активна' : 'В ожидании'}
         </p>
       </div>
-      {isPendingCancel || isPendingAccept ? (
+      {isPendingCancel || isPendingAccept || isPendingCompletion ? (
         <div className="w-full mt-[30px] h-[100vh] flex justify-center items-center">
           <Preloader />
         </div>
@@ -87,7 +95,7 @@ const DealsAcceptOrCancel: React.FC = () => {
         <div className="w-full h-[100vh] flex justify-center items-center">
           <p className="text-center">{errorAccept?.message}</p>
         </div>
-      ) : showAnimation ? ( 
+      ) : showAnimation ? (
         <div className="w-full h-[100vh] flex justify-center items-center mb-[40px]">
           <Lottie
             animationData={animation}
@@ -128,7 +136,12 @@ const DealsAcceptOrCancel: React.FC = () => {
               )}
             </div>
           </div>
-          <AcceptDeal transaction_id={dealDetail?.id ?? ''} mutate={mutateAccept} />
+          <AcceptDeal
+            transaction_id={dealDetail?.id ?? ''}
+            mutateAccept={mutateAccept}
+            mutateCompletion={mutateCompletion}
+            valueTabsProfile={valueTabsProfile}
+          />
           <CanceledDeal transaction_id={dealDetail?.id ?? ''} mutate={mutateCancel} />
           <p className="w-full text-center text-[28px] mt-[45px]">{dealDetail?.sum + 'р'}</p>
         </>

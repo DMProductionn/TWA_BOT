@@ -41,3 +41,16 @@ export const acceptDeal = async (transaction_id: {transaction_id: string}) => {
     }
   }
 }
+
+export const completionDeal = async (transaction_id: {transaction_id: string}) => {
+  try {
+    const res = await https.post('/transaction/conditions_are_met', transaction_id);
+    return res.data
+  } catch (error: any) {
+    if (error.response) {
+      throw new Error(error.response.data.detail);
+    } else {
+      throw new Error("Ошибка сети");
+    }
+  }
+}

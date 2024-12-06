@@ -3,18 +3,24 @@ import NoDeals from '../../../../shared/NoDeals';
 import type { IDeal } from '../../../../app/types/Deals/deal.type';
 import { AppDispatch } from '../../../../app/redux/store';
 import { useDispatch } from 'react-redux';
-import { setActiveLeftProfile, setActiveRightProfile } from '../../../../app/redux/Slices/animation.slice';
+import {
+  setActiveLeftProfile,
+  setActiveRightProfile,
+} from '../../../../app/redux/Slices/animation.slice';
 import { setDealDetail } from '../../../../app/redux/Slices/dealdetail.slice';
 
-const DealsPending: React.FC<{pendingTransitions: IDeal[]}> = ({pendingTransitions}) => {
+type Props = {
+  pendingTransitions: IDeal[];
+};
+
+const DealsPending: React.FC<Props> = ({ pendingTransitions }) => {
   const dispatch: AppDispatch = useDispatch();
 
   const onClickDeal = (deal: IDeal) => {
     dispatch(setActiveLeftProfile(true));
     dispatch(setActiveRightProfile(false));
     dispatch(setDealDetail(deal));
-  }
-  
+  };
 
   return (
     <>

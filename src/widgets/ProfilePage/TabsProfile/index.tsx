@@ -20,7 +20,6 @@ const TabsProfile: React.FC<{ countDealsPending: number, countDealsActive: numbe
       dispatch(setValueTabsProfile('в ожидании'));
     }
   };
-  
 
   return (
     <>

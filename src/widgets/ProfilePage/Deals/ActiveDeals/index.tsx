@@ -3,17 +3,20 @@ import NoDeals from '../../../../shared/NoDeals';
 import type { IDeal } from '../../../../app/types/Deals/deal.type';
 import type { AppDispatch } from '../../../../app/redux/store';
 import { useDispatch } from 'react-redux';
-import { setActiveLeftProfile, setActiveRightProfile } from '../../../../app/redux/Slices/animation.slice';
+import {
+  setActiveLeftProfile,
+  setActiveRightProfile,
+} from '../../../../app/redux/Slices/animation.slice';
+import { setDealDetail } from '../../../../app/redux/Slices/dealdetail.slice';
 
-const ActiveDeals: React.FC<{activeTransitions: IDeal[]}> = ({activeTransitions}) => {
+const ActiveDeals: React.FC<{ activeTransitions: IDeal[] }> = ({ activeTransitions }) => {
   const dispatch: AppDispatch = useDispatch();
-  
 
-  const onClickDeal = () => {
+  const onClickDeal = (deal: IDeal) => {
     dispatch(setActiveLeftProfile(true));
     dispatch(setActiveRightProfile(false));
-  }
-  
+    dispatch(setDealDetail(deal));
+  };
 
   return (
     <>
@@ -23,7 +26,7 @@ const ActiveDeals: React.FC<{activeTransitions: IDeal[]}> = ({activeTransitions}
         activeTransitions?.map((deal: IDeal) => {
           return (
             <div
-              onClick={onClickDeal}
+              onClick={() => onClickDeal(deal)}
               key={deal.id}
               className="bg-blue-dark w-full cursor-pointer py-[10px] rounded-[4px] flex justify-between items-center px-[15px] relative">
               <div className="flex flex-col items-center">

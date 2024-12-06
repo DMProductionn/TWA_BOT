@@ -23,6 +23,7 @@ const CreateDealBlock = () => {
     if (isSuccess) {
       setTimeout(() => {
         dispatch(setValueTabsProfile('в ожидании'));
+        localStorage.setItem('indexTabProfile', JSON.stringify(1));
         navigate('/profile');
         setActiveRight(false);
         dispatch(setActive(false));
