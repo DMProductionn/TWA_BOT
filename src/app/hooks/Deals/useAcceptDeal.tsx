@@ -9,6 +9,7 @@ const useAcceptDeal = () => {
     mutationFn: (transaction_id: { transaction_id: string }) => acceptDeal(transaction_id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['transactions'] });
+      queryClient.invalidateQueries({ queryKey: ['usersMe'] });
     }
   });
 }

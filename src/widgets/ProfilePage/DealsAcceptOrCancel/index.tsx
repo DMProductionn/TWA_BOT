@@ -22,7 +22,6 @@ const DealsAcceptOrCancel: React.FC = () => {
   );
   const { valueTabsProfile } = useSelector((state: RootState) => state.tabsSlice);
   const { dealDetail } = useSelector((state: RootState) => state.dealDetailSlice);
-  
 
   const {
     mutate: mutateCompletion,

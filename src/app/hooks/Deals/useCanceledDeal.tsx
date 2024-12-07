@@ -9,6 +9,7 @@ const useCanceledDeal = () => {
     mutationFn: (transaction_id: { transaction_id: string }) => canceledDeal(transaction_id),
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ['transactions'] });
+      queryClient.invalidateQueries({ queryKey: ['usersMe'] });
     }
   });
 }

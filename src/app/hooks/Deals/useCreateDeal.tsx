@@ -8,7 +8,8 @@ const useCreateDeal = () => {
     mutationKey: ['createDeal'], 
     mutationFn: (deal_params : {user_for: string, sum: number}) => createDeal(deal_params),
     onSuccess: () => {
-      queryClient.invalidateQueries({queryKey: ['transactions']})
+      queryClient.invalidateQueries({queryKey: ['transactions']});
+      queryClient.invalidateQueries({ queryKey: ['usersMe'] });
     }
   })
 }
