@@ -9,7 +9,7 @@ const Balances = () => {
   return (
     <div className={activeBalances ? `${style.balances} ${style.active}` : `${style.balances}`}>
       <p className="text-center w-full mt-[10px]">Баланс</p>
-      <div className='flex flex-col gap-[10px] mt-[25px]'>
+      <div className='flex flex-col gap-[10px] mt-[40px]'>
         <div className='flex justify-between items-center bg-blue-dark p-[10px] rounded-[4px]'>
           <p className='text-[14px] leading-7'>Основной баланс</p>
           <p>{balances?.balance + 'р'}</p>

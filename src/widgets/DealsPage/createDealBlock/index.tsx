@@ -35,24 +35,9 @@ const CreateDealBlock = () => {
     <div
       className={`${
         active ? 'go-left' : ''
-      } bg-blue-medium max-h-[400px] absolute z-[9] -top-[50px] w-full h-[450px] py-[10px] rounded-[4px] px-[15px] create-deal-block ${
+      } bg-blue-medium max-h-[400px] absolute z-[999] w-full h-[450px] py-[10px] rounded-[4px] px-[15px] create-deal-block ${
         activeRight && 'go-right'
       }`}>
-      <button onClick={() => (dispatch(setActiveRight(true)), dispatch(setActive(false)))}>
-        <svg
-          width="37"
-          height="38"
-          viewBox="0 0 37 38"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg">
-          <path
-            fillRule="evenodd"
-            clipRule="evenodd"
-            d="M26.2551 34.0897C25.8035 34.5534 25.0715 34.5534 24.6199 34.0897L10.7449 19.8397C10.2934 19.3759 10.2934 18.6241 10.7449 18.1603L24.6199 3.91031C25.0715 3.44657 25.8036 3.44657 26.2551 3.91031C26.7066 4.37406 26.7066 5.12594 26.2551 5.58969L13.1977 19L26.2551 32.4103C26.7066 32.8741 26.7066 33.6259 26.2551 34.0897Z"
-            fill="#D9D9D9"
-          />
-        </svg>
-      </button>
       {isPending ? (
         <div className="w-full h-full flex justify-center items-center">
           <Preloader />
@@ -68,6 +53,21 @@ const CreateDealBlock = () => {
         </div>
       ) : (
         <>
+          <button className='absolute' onClick={() => (dispatch(setActiveRight(true)), dispatch(setActive(false)))}>
+            <svg
+              width="37"
+              height="38"
+              viewBox="0 0 37 38"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg">
+              <path
+                fillRule="evenodd"
+                clipRule="evenodd"
+                d="M26.2551 34.0897C25.8035 34.5534 25.0715 34.5534 24.6199 34.0897L10.7449 19.8397C10.2934 19.3759 10.2934 18.6241 10.7449 18.1603L24.6199 3.91031C25.0715 3.44657 25.8036 3.44657 26.2551 3.91031C26.7066 4.37406 26.7066 5.12594 26.2551 5.58969L13.1977 19L26.2551 32.4103C26.7066 32.8741 26.7066 33.6259 26.2551 34.0897Z"
+                fill="#D9D9D9"
+              />
+            </svg>
+          </button>
           <p className="w-full text-center font-[600] mb-[100px]">Сделка с {usersFirstName}</p>
           <div className="w-full text-center mb-[60px]">
             <p className="w-full text-center mb-[20px]">Введите сумму сделки в рублях</p>
