@@ -7,7 +7,7 @@ type TypeUserDataProps = {
 
 const UserData: React.FC<TypeUserDataProps> = ({first_name, is_premium}) => {
   return (
-    <div className="flex flex-col items-center justify-center bg-blue-dark mt-[30px]">
+    <div className="flex flex-col items-center justify-center bg-blue-dark">
       <div className="relative">
         <div className="w-[110px] h-[110px] rounded-[50%] overflow-hidden mb-[8px]">
           {

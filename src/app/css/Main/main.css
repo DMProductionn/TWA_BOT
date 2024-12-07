@@ -46,3 +46,9 @@ button {
 a {
   cursor: pointer;
 }
+
+
+body::-webkit-scrollbar {
+  opacity: 0;             /* ширина всей полосы прокрутки */
+}
+

@@ -7,6 +7,7 @@ import { useEffect, useState } from 'react';
 import { TypeUser } from '../app/types/Deals/user.type';
 import Preloader from '../shared/Preloader';
 import CreateDealBlock from '../widgets/DealsPage/createDealBlock';
+import Balances from '../widgets/DealsPage/Balances';
 
 const Deals = () => {
   const { active, activeRight } = useSelector((state: RootState) => state.animationSlice);
@@ -29,7 +30,8 @@ const Deals = () => {
   return (
     <>
       <div className={active ? style.users_wrapper : activeRight ? style.users_wrapper_static : ''}>
-        <div className="max-h-[400px] overflow-auto">
+        <div className="max-h-[400px] overflow-hidden">
+          <Balances />
           <CreateDealBlock />
           <div className={style.users__wrapper}>
             {isLoading ? (

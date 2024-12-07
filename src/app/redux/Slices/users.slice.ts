@@ -5,13 +5,21 @@ import type { TypeUser} from '../../types/Deals/user.type'
 export interface usersState {
   users: TypeUser[] | null,
   usersFirstName: string,
-  usersId: string
+  usersId: string,
+  balances: {
+    balance: number,
+    frozen_balance: number
+  }
 }
 
 const initialState: usersState = {
   users: null,
   usersFirstName: '',
-  usersId: ''
+  usersId: '',
+  balances: {
+    balance: 0,
+    frozen_balance: 0
+  }
 }
 
 export const usersSlice = createSlice({
@@ -26,12 +34,15 @@ export const usersSlice = createSlice({
     },
     setUsersId: (state, action: PayloadAction<string>) => {
       state.usersId = action.payload
+    },
+    setBalances: (state, action: PayloadAction<{ balance: number, frozen_balance: number }>) => {
+      state.balances = action.payload
     }
   },
 })
 
 
-export const { setUsers, setUsersFirstName, setUsersId } = usersSlice.actions
+export const { setUsers, setUsersFirstName, setUsersId, setBalances } = usersSlice.actions
 
 export default usersSlice.reducer
 

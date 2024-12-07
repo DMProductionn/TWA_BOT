@@ -1,0 +1,7 @@
+.balances {
+  @apply bg-blue-medium h-[300px] absolute -bottom-[700px] w-full px-[15px] left-0 rounded-[4px] transition-all duration-500;
+}
+
+.balances.active {
+  @apply -bottom-[100px];
+}

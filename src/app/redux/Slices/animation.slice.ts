@@ -5,14 +5,16 @@ export interface IAnimationState {
   active: boolean,
   activeRight: boolean,
   activeLeftProfile: boolean,
-  activeRightProfile: boolean
+  activeRightProfile: boolean,
+  activeBalances: boolean
 }
 
 const initialState: IAnimationState = {
   active: false,
   activeRight: false,
   activeLeftProfile: false,
-  activeRightProfile: false
+  activeRightProfile: false,
+  activeBalances: false
 }
 
 export const animationSlice = createSlice({
@@ -30,12 +32,15 @@ export const animationSlice = createSlice({
     },
     setActiveLeftProfile: (state, action: PayloadAction<boolean>) => {
       state.activeLeftProfile = action.payload
+    }, 
+    setActiveBalances: (state, action: PayloadAction<boolean>) => {
+      state.activeBalances = action.payload
     }
   },
 })
 
 
-export const { setActive, setActiveRight, setActiveRightProfile, setActiveLeftProfile } = animationSlice.actions
+export const { setActive, setActiveRight, setActiveRightProfile, setActiveLeftProfile, setActiveBalances } = animationSlice.actions
 
 export default animationSlice.reducer
 

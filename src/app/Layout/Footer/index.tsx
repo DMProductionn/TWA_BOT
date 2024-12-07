@@ -1,4 +1,5 @@
 import { useLocation, useNavigate } from 'react-router-dom';
+import style from '../../css/Footer/footer.module.css';
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -10,12 +11,12 @@ const Footer = () => {
 
   return (
     <>
-      { location.pathname === '/' ? null :
-        <footer className="bg-blue-medium h-[75px] flex justify-center items-center z-[999]">
+      {location.pathname === '/' ? null : (
+        <footer className="bg-blue-medium h-[65px] flex justify-center items-center z-[999]">
           <nav className="w-full">
             <ul className="flex justify-around">
               <li
-                className="flex flex-col items-center h-[55px] cursor-pointer"
+                className={location.pathname === '/deals' ? `${style.link} ${style.active}` : `${style.link}`}
                 onClick={() => onClickNavigation('/deals')}>
                 <svg
                   width="24"
@@ -36,10 +37,14 @@ const Footer = () => {
                     fill={location.pathname === '/deals' ? '#1FA9FF' : '#fff'}
                   />
                 </svg>
-                <p style={{ color: location.pathname === '/deals' ? '#1FA9FF' : '#fff' }}>Сделки</p>
+                <p
+                  style={{ color: location.pathname === '/deals' ? '#1FA9FF' : '#fff' }}
+                  className="text-[14px]">
+                  Сделки
+                </p>
               </li>
               <li
-                className="flex flex-col items-center h-[55px] cursor-pointer"
+                className={location.pathname === '/history' ? `${style.link} ${style.active}` : `${style.link}`}
                 onClick={() => onClickNavigation('/history')}>
                 <svg
                   width="21"
@@ -64,12 +69,14 @@ const Footer = () => {
                     fill={location.pathname === '/history' ? '#1FA9FF' : '#fff'}
                   />
                 </svg>
-                <p style={{ color: location.pathname === '/history' ? '#1FA9FF' : '#fff' }}>
+                <p
+                  style={{ color: location.pathname === '/history' ? '#1FA9FF' : '#fff' }}
+                  className="text-[14px]">
                   История
                 </p>
               </li>
               <li
-                className="flex flex-col items-center h-[55px] cursor-pointer"
+                className={location.pathname === '/profile' ? `${style.link} ${style.active}` : `${style.link}`}
                 onClick={() => onClickNavigation('/profile')}>
                 <svg
                   width="30"
@@ -86,14 +93,16 @@ const Footer = () => {
                     fill={location.pathname === '/profile' ? '#1FA9FF' : '#fff'}
                   />
                 </svg>
-                <p style={{ color: location.pathname === '/profile' ? '#1FA9FF' : '#fff' }}>
+                <p
+                  style={{ color: location.pathname === '/profile' ? '#1FA9FF' : '#fff' }}
+                  className='text-[14px]'>
                   Профиль
                 </p>
               </li>
             </ul>
           </nav>
         </footer>
-      }
+      )}
     </>
   );
 };

@@ -7,21 +7,22 @@ const Layout = () => {
 
   return (
     <>
-      <div className="px-[15px] pb-[70px]">
+      <div className="px-[15px] pb-[70px] flex flex-col min-h-screen">
         <Header />
         <main
           className={
-            location.pathname === '/deals' || location.pathname === '/' || location.pathname.includes('/preloader')
-              ? 'w-full relative mb-[25px] h-[350px]'
-              : 'max-w-[1220px] w-full h-[600px] bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative' 
+            location.pathname === '/deals' ||
+            location.pathname === '/' ||
+            location.pathname.includes('/preloader')
+              ? 'w-full max-w-[1220px] relative flex-1 overflow-hidden'
+              : 'overflow-hidden max-w-[1220px] w-full flex-1 bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative'
           }>
-          <Outlet />
+          <div className='mb-[25px]'>
+            <Outlet />
+          </div>
         </main>
       </div>
-      {
-        !location.pathname.includes('/preloader') &&
-        <Footer />
-      }
+      {!location.pathname.includes('/preloader') && <Footer />}
     </>
   );
 };
