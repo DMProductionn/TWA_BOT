@@ -1,13 +1,16 @@
 .create-deal-block {
   transition: all 0.3s ease-in-out;
   position: absolute;
-  left: 600px;
+  left: 1500px;
+  top: 10px;
+  opacity: 0;
 }
 
 .create-deal-block.go-left {
-  left: 400px
+  left: 0px;
+  opacity: 100%;
 }
 
 .create-deal-block.go-right {
-  left: 800px
+  left: 1500px
 }

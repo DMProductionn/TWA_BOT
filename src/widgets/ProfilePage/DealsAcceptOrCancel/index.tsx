@@ -8,12 +8,13 @@ import {
 } from '../../../app/redux/Slices/animation.slice';
 import AcceptDeal from '../../../features/AcceptDeal';
 import CanceledDeal from '../../../features/CanceledDeal';
-import Preloader from '../../../shared/Preloader';
 import useCanceledDeal from '../../../app/hooks/Deals/useCanceledDeal';
 import useAcceptDeal from '../../../app/hooks/Deals/useAcceptDeal';
-import animation from '../../../../public/img/icons/1.json';
+import animation from '../../../../public/img/icons/success.json';
+import animationCancel from '../../../../public/img/icons/2.json';
 import Lottie from 'lottie-react';
 import useCompletionDeal from '../../../app/hooks/Deals/useCompletionDeal';
+import Loader from '../../../shared/Loader';
 
 const DealsAcceptOrCancel: React.FC = () => {
   const dispatch: AppDispatch = useDispatch();
@@ -43,9 +44,10 @@ const DealsAcceptOrCancel: React.FC = () => {
   } = useAcceptDeal();
 
   const [showAnimation, setShowAnimation] = useState(false);
+  const [showAnimationCancel, setShowAnimationCancel] = useState(false);
 
   useEffect(() => {
-    if (isSuccessAccept || isSuccessCancel || isSuccessCompletion) {
+    if (isSuccessAccept || isSuccessCompletion) {
       setShowAnimation(true);
       const timer = setTimeout(() => {
         dispatch(setActiveLeftProfile(false));
@@ -54,95 +56,97 @@ const DealsAcceptOrCancel: React.FC = () => {
       }, 1000);
       return () => clearTimeout(timer);
     }
-  }, [isSuccessAccept, isSuccessCancel, isSuccessCompletion]);
+  }, [isSuccessAccept, isSuccessCompletion]);
+
+  useEffect(() => {
+    if (isSuccessCancel) {
+      setShowAnimationCancel(true);
+      const timer = setTimeout(() => {
+        dispatch(setActiveLeftProfile(false));
+        dispatch(setActiveRightProfile(false));
+        setShowAnimationCancel(false);
+      }, 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isSuccessCancel]);
 
   return (
     <div
       className={`${
-        activeLeftProfile ? 'go-left-profile' : ''
-      } bg-blue-medium absolute z-[99] -top-[10px] w-full h-[600px] py-[10px] rounded-[4px] px-[15px] create-deal-block-profile ${
-        activeRightProfile && 'go-right-profile'
+        activeLeftProfile ? 'go-left' : ''
+      } bg-blue-dark max-h-[100vh] h-full top-[0px] fixed z-[999] w-full py-[10px] rounded-[4px] px-[15px] create-deal-block ${
+        activeRightProfile && 'go-right'
       }`}>
-      <div className="flex justify-between">
-        <button
-          onClick={() => (
-            dispatch(setActiveRightProfile(true)), dispatch(setActiveLeftProfile(false))
-          )}>
-          <svg
-            width="37"
-            height="38"
-            viewBox="0 0 37 38"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg">
-            <path
-              fillRule="evenodd"
-              clipRule="evenodd"
-              d="M26.2551 34.0897C25.8035 34.5534 25.0715 34.5534 24.6199 34.0897L10.7449 19.8397C10.2934 19.3759 10.2934 18.6241 10.7449 18.1603L24.6199 3.91031C25.0715 3.44657 25.8036 3.44657 26.2551 3.91031C26.7066 4.37406 26.7066 5.12594 26.2551 5.58969L13.1977 19L26.2551 32.4103C26.7066 32.8741 26.7066 33.6259 26.2551 34.0897Z"
-              fill="#D9D9D9"
-            />
-          </svg>
-        </button>
-        <p style={{ color: valueTabsProfile === 'активно' ? '#00E577' : '#FFB800' }}>
-          {valueTabsProfile === 'активно' ? 'Активна' : 'В ожидании'}
-        </p>
-      </div>
       {isPendingCancel || isPendingAccept || isPendingCompletion ? (
         <div className="w-full mt-[30px] h-[100vh] flex justify-center items-center">
-          <Preloader />
+          <Loader />
         </div>
       ) : isErrorAccept ? (
         <div className="w-full h-[100vh] flex justify-center items-center">
-          <p className="text-center">{errorAccept?.message}</p>
+          <p className="text-center text-red">{errorAccept?.message}</p>
         </div>
       ) : showAnimation ? (
-        <div className="w-full h-[100vh] flex justify-center items-center mb-[40px]">
+        <div className="w-full h-[100vh] flex flex-col justify-center gap-[10px] items-center mb-[40px]">
           <Lottie
             animationData={animation}
             loop={true}
             autoplay={true}
             style={{ width: '100px', height: '100px' }}
           />
+          <div className="success_text text-green">Сделка успешно принята</div>
+        </div>
+      ) : showAnimationCancel ? (
+        <div className="w-full h-[100vh] flex flex-col justify-center gap-[15px] items-center mb-[40px]">
+          <Lottie
+            animationData={animationCancel}
+            loop={true}
+            autoplay={true}
+            style={{ width: '80px', height: '80px' }}
+          />
+          <div className="success_text text-red">Сделка отменена</div>
         </div>
       ) : (
         <>
-          <div className="mt-[40px] flex flex-col items-center justify-center gap-[30px]">
-            <div className="flex flex-col justify-center items-center relative">
-              <div className="w-[100px] h-[100px] rounded-[50%] overflow-hidden">
-                <img className="w-full h-full object-cover" src="./img/test.png" alt="avatar" />
-              </div>
-              <p className="mt-[5px] text-[20px]">{dealDetail?.user_initiator.username}</p>
-              {dealDetail?.user_initiator.is_premium && (
-                <p className="text-blue-super-light text-[14px] absolute -top-[12px] -right-[40px]">
-                  Premium
-                </p>
-              )}
+          <button
+            className="absolute z-[999] flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] top-[40px] w-auto px-[15px] rounded-[20px]"
+            onClick={() => (
+              dispatch(setActiveRightProfile(true)), dispatch(setActiveLeftProfile(false))
+            )}>
+            <div className="border-r flex justify-center items-center h-full border-[#4E5567]">
+              <svg
+                className="mr-[15px]"
+                width="9"
+                height="13"
+                viewBox="0 0 9 13"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M0.833305 6.27963L6.94629 12.3916L8.38428 10.9536L3.70623 6.27557L8.38428 1.60464L6.94629 0.166652L0.833305 6.27963Z"
+                  fill="white"
+                />
+              </svg>
             </div>
-            <div className="flex flex-col gap-[10px]">
-              <div className="bg-white w-[5px] h-[15px]"></div>
-              <div className="bg-white w-[5px] h-[15px]"></div>
-              <div className="bg-white w-[5px] h-[15px]"></div>
-              <div className="bg-white w-[5px] h-[15px]"></div>
+            <p className="text-[14px] font-bold">Назад</p>
+          </button>
+          <div className="w-full h-full flex flex-col justify-center items-center text-center mb-[60px] relative">
+            <div className="bg-blue-medium h-[50px] w-[330px] rounded-[20px] flex justify-center items-center mb-[30px]">
+              <p className="w-full text-center font-bold">
+                Сделка с <span className="text-green">{dealDetail?.user_user_for.username}</span>
+              </p>
             </div>
-            <div className="flex flex-col justify-center items-center relative">
-              <div className="w-[100px] h-[100px] rounded-[50%] overflow-hidden">
-                <img className="w-full h-full object-cover" src="./img/test.png" alt="avatar" />
-              </div>
-              <p className="mt-[5px] text-[20px]">{dealDetail?.user_user_for.username}</p>
-              {dealDetail?.user_user_for.is_premium && (
-                <p className="text-blue-super-light text-[14px] absolute -top-[12px] -right-[35px]">
-                  Premium
-                </p>
-              )}
+            <p className="w-full text-center mb-[5px] font-bold">Сумма сделки</p>
+            <div className="flex items-center gap-[10px]">
+              <p className="text-white text-[50px] leading-[100%] font-bold">{dealDetail?.sum}</p>
+              <p className="text-[#21242D] text-[50px] leading-[100%] font-bold">RUB</p>
             </div>
+            <AcceptDeal
+              transaction_id={dealDetail?.id ?? ''}
+              mutateAccept={mutateAccept}
+              mutateCompletion={mutateCompletion}
+              valueTabsProfile={valueTabsProfile}
+            />
+            <CanceledDeal transaction_id={dealDetail?.id ?? ''} mutate={mutateCancel} />
           </div>
-          <AcceptDeal
-            transaction_id={dealDetail?.id ?? ''}
-            mutateAccept={mutateAccept}
-            mutateCompletion={mutateCompletion}
-            valueTabsProfile={valueTabsProfile}
-          />
-          <CanceledDeal transaction_id={dealDetail?.id ?? ''} mutate={mutateCancel} />
-          <p className="w-full text-center text-[28px] mt-[45px]">{dealDetail?.sum + 'р'}</p>
         </>
       )}
     </div>

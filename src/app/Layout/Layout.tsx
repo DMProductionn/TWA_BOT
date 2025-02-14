@@ -1,26 +1,23 @@
 import Footer from './Footer';
 import { Outlet, useLocation } from 'react-router-dom';
 import Header from './Headers/header';
-import '../css/Layout/layout.css'
 
 const Layout = () => {
   const location = useLocation();
 
   return (
     <>
-      <div className="px-[15px]">
+      <div className="px-[15px] w-full max-w-[1220px] mx-auto">
         <Header />
         <main
           className={
             location.pathname === '/deals' ||
             location.pathname === '/' ||
             location.pathname.includes('/preloader')
-              ? 'w-full max-w-[1220px] h-[200px]'
-              : 'overflow-hidden max-w-[1220px] w-full flex-1 bg-blue-medium rounded-[4px] mb-[25px] mx-auto relative'
+              ? 'w-full max-w-[1220px] h-full min-h-[calc(100vh-85px)]'
+              : 'max-w-[1220px] w-full flex-1 mx-auto min-h-[calc(100vh-85px)] mb-[100px]'
           }>
-          <div className='relative overflow-hidden layout__wrapper'>
-            <Outlet />
-          </div>
+          <Outlet />
         </main>
       </div>
       {!location.pathname.includes('/preloader') && <Footer />}

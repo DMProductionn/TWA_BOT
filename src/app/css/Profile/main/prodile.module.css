@@ -1,10 +1,3 @@
 .profile {
-  @apply bg-blue-medium h-[350px] px-[20px] mb-[20px] rounded-b-[4px] overflow-auto pb-[15px]
-}
-
-
-@media only screen and (max-width: 353px) {
-  .profile {
-    @apply px-[10px];
-  }
+  @apply mb-[20px] overflow-auto pb-[15px]
 }

@@ -1,7 +1,6 @@
 import { useSelector } from 'react-redux';
 import AllBlocks from '../widgets/HistoryPage/HistoryBlocks/AllBlocks';
-import Tabs from '../widgets/HistoryPage/Tabs';
-import type { RootState } from '../app/redux/store';
+ import type { RootState } from '../app/redux/store';
 import CanceledBlock from '../widgets/HistoryPage/HistoryBlocks/CanceledBlock';
 import CompletedBlock from '../widgets/HistoryPage/HistoryBlocks/CompletedBlock';
 import useGetTransactions from '../app/hooks/History/useGetTransactions';
@@ -26,8 +25,7 @@ const History = () => {
   
 
   return (
-    <div className='p-[15px] max-h-[585px] overflow-auto'>
-      <Tabs />
+    <div className='overflow-auto'>
       <div className='flex flex-col gap-[15px]'>
         {valueTabsHistory === 'отменено' ? (
           <CanceledBlock transitionsCanceled={transitionsCanceled}/>

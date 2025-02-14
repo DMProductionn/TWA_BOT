@@ -17,7 +17,7 @@ const CreateDeal: React.FC<{firstName: string, user_for: string}> = ({ firstName
   return (
     <button
       onClick={onClickCreateDeal}
-      className="bg-blue-light rounded-[4px] w-[130px] h-[25px] text-[12px] flex justify-center items-center mt-[7px]">
+      className="bg-green rounded-[10px] active:opacity-[70%] w-[130px] h-[40px] text-[12px] font-medium text-text-black flex justify-center items-center mt-[7px]">
       Создать сделку
     </button>
   );

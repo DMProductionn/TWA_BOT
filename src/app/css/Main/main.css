@@ -23,19 +23,9 @@ img {
   max-width: 100%;
 }
 
-
-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  background-color: #333;
-  color: white;
-  text-align: center;
-}
-
 body {
-  @apply bg-blue-dark text-white font-Roboto;
+  @apply bg-[#16171D] text-white;
+  font-family: Inter, sans-serif !important;
   overflow-x: hidden;
 }
 

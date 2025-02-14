@@ -1,5 +1,5 @@
-.users__wrapper {
-  @apply flex justify-between gap-[20px] overflow-auto mb-[20px];
+.users__wrapper_container {
+  @apply flex flex-wrap w-full gap-[10px] relative w-full overflow-hidden mb-[20px];
 }
 
 .users_wrapper {
@@ -10,4 +10,5 @@
 .users_wrapper_static {
   transition: all 0.2s ease-in-out;
   transform: translateX(0px);
+  height: 100%;
 }

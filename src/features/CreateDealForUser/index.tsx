@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { RootState } from "../../app/redux/store"
 
-const CreateDealForUser: React.FC<{ sum: number, mutate: any }> = ({ sum, mutate }) => {
+const CreateDealForUser: React.FC<{ sum: string, mutate: any }> = ({ sum, mutate }) => {
 
   const user_for = useSelector((state: RootState) => state.usersSlice.usersId);
 
@@ -15,7 +15,7 @@ const CreateDealForUser: React.FC<{ sum: number, mutate: any }> = ({ sum, mutate
   }
 
   return (
-    <button onClick={onClickCreateDeal} className="w-full bg-blue-light rounded-[4px] text-center h-[30px] text-[18px]">Создать</button>
+    <button disabled={!sum.trim()} onClick={onClickCreateDeal} className={`max-w-[360px] h-[50px] text-text-black font-bold w-full bg-green absolute bottom-[50px] rounded-[20px] text-center text-[18px] ${!sum.trim() && 'opacity-50 cursor-not-allowed'}`}>Создать</button>
   )
 }
 

@@ -3,5 +3,5 @@
 }
 
 .balances.active {
-  @apply -bottom-[60px];
+  @apply bottom-[0px];
 }

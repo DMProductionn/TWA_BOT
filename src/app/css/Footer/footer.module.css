@@ -1,8 +1,4 @@
 .link {
-  @apply flex flex-col gap-[5px] items-center h-[60px] cursor-pointer relative bottom-0 rounded-[4px] w-[75px] py-[5px];
+  @apply flex flex-col h-full gap-[5px] items-center cursor-pointer relative bottom-0 rounded-[4px] w-[75px] py-[5px];
   transition: bottom 0.2s ease-in-out;
-}
-
-.link.active {
-  @apply bg-blue-dark bottom-[7px];
 }

@@ -9,7 +9,7 @@ const Tabs = () => {
   const [indexTab, setIndexTab] = useState(
     JSON.parse(localStorage.getItem('indexTabHistory') || '0'),
   );
-  const tabs = ['Все', 'Завершенные', 'Отмененные'];
+  const tabs = ['Завершенные', 'Отмененные', 'Все'];
 
   const onClickButton = (tab: string, index: number) => {
     setIndexTab(index);
@@ -30,7 +30,9 @@ const Tabs = () => {
           <button
             key={index}
             onClick={() => onClickButton(tab, index)}
-            className={index === indexTab ? 'item-link active' : 'item-link'}>
+            className={`item-link ${index === indexTab ? 'active' : ''} ${
+              index === 2 ? 'full-width' : 'half-width'
+            }`}>
             {tab}
           </button>
         ))}

@@ -1,7 +1,7 @@
 .create-deal-block-profile {
   transition: all 0.3s ease-in-out;
-  position: absolute;
-  left: 600px;
+  position: fixed;
+  left: 1600px;
 }
 
 .create-deal-block-profile.go-left-profile {
@@ -9,5 +9,9 @@
 }
 
 .create-deal-block-profile.go-right-profile {
-  left: 800px
+  left: 1600px
+}
+
+.success_text {
+  @apply bg-blue-medium h-[50px] w-[290px] rounded-[20px] flex justify-center items-center
 }

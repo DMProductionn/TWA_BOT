@@ -1,13 +1,13 @@
 .SwitchRoot {
   width: 42px;
   height: 25px;
-  @apply bg-blue-dark;
+  @apply bg-[#185e24];
   border-radius: 9999px;
   position: relative;
   box-shadow: 0 2px 10px var(--black-a7);
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   &[data-state='checked'] {
-    @apply bg-[#1767A1];
+    @apply bg-[#48D05D];
   }
 }
 

@@ -4,16 +4,17 @@ export default {
   theme: {
     extend: {
       colors: {
-        white: '#fff',
-        'blue-dark': '#0F2644',
-        'blue-medium': '#134773',
+        'white': '#fff',
+        'blue-dark': '#16171D', 
+        'blue-medium': '#21242D',
         'blue-light': '#1767A1',
         'blue-super-light': '#1FA9FF',
-        green: '#00E577',
-        red: '#E50046',
+        'green': '#48D05D',
+        'red': '#F34949',
+        'text-black': '#16171D'
       },
       fontFamily: {
-        Roboto: ['Roboto', 'sans-serif'],
+        sans: ['Inter', 'sans-serif'], 
       },
     },
   },

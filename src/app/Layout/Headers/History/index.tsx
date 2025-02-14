@@ -1,7 +1,9 @@
+import Tabs from "../../../../widgets/HistoryPage/Tabs"
+
 const HeaderHistory = () => {
   return (
     <>
-      <p className="text-center w-full">История</p>
+      <Tabs />
     </>
   )
 }

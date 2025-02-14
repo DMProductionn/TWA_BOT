@@ -71,6 +71,7 @@ const PreloaderPage: React.FC = () => {
   return (
     <div className="w-full h-[100vh] flex justify-center items-center fixed">
       <Preloader />
+      <button onClick={() => navigate('/deals')}>11</button>
     </div>
   );
 };
