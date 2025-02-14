@@ -5,9 +5,8 @@ import type { RootState } from '../app/redux/store';
 import useGetUserSearch from '../app/hooks/Users/useGetUserSearch';
 import { useEffect, useState } from 'react';
 import { TypeUser } from '../app/types/Deals/user.type';
-import Preloader from '../shared/Preloader';
 import CreateDealBlock from '../widgets/DealsPage/createDealBlock';
-import Search from '../widgets/DealsPage/Search';
+import Loader from '../shared/Loader';
 const Deals = () => {
   const { users } = useSelector((state: RootState) => state.usersSlice);
   const { profileInfo } = useSelector((state: RootState) => state.profileSlice);
@@ -31,10 +30,9 @@ const Deals = () => {
       <div className={style.users_wrapper_static}>
         <div className={style.users__wrapper_container}>
           {isLoading ? (
-            // <div className="w-full flex justify-center mt-[80px]">
-            //   {/* <Preloader /> */}
-            // </div>
-            <p></p>
+            <div className="w-full flex justify-center mt-[80px]">
+              <Loader />
+            </div>
           ) : filteredData?.length === 0 && search ? (
             <div className="w-full flex justify-center mt-[80px]">
               <p>Пользователей не найдено</p>
