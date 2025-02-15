@@ -11,7 +11,7 @@ const Layout = () => {
         <Header />
         <main
           className={
-            location.pathname === '/preloader'
+            location.pathname === '/'
               ? 'w-full max-w-[1220px] h-full min-h-[calc(100vh-85px)]'
               : 'max-w-[1220px] w-full px-[15px] flex-1 mx-auto min-h-[calc(100vh-85px)] mb-[100px]'
           }>

@@ -12,7 +12,7 @@ function App() {
       {
         <Routes>
           <Route path="/" element={<Layout />}>
-            <Route index path="/preloader" element={<PreloaderPage />} />
+            <Route index path="/" element={<PreloaderPage />} />
             <Route path="/deals" element={<Deals />} />
             <Route path="/history" element={<History />} />
             <Route path="/profile" element={<Profile />} />
