@@ -26,7 +26,7 @@ const RatingUser: React.FC<{ rating: number }> = ({ rating }) => {
 
   return (
     <div className="flex items-center gap-[7px] mt-[2px]">
-      <p className="text-[14px]">{rating} 4.0</p>
+      <p className="text-[14px]">{rating}</p>
       <div className="flex gap-[3px]">
         {[...Array(filledStars)]?.map((_, index) => (
           <React.Fragment key={`filled-${index}`}>{filledStarSVG}</React.Fragment>

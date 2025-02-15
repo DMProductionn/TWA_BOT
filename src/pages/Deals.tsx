@@ -34,8 +34,10 @@ const Deals = () => {
               <Loader />
             </div>
           ) : filteredData?.length === 0 && search ? (
-            <div className="w-full flex justify-center mt-[80px]">
-              <p>Пользователей не найдено</p>
+            <div className="w-full flex flex-col justify-center items-center">
+              <div className="bg-blue-medium rounded-[20px] h-[60px] w-full flex justify-center items-center text-[#4E5567]">
+                Пользователей не найдено
+              </div>
             </div>
           ) : search ? (
             filteredData?.map((user: TypeUser) => <User key={user.id} {...user} />)

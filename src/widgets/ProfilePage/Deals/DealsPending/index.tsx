@@ -22,39 +22,12 @@ const DealsPending: React.FC<Props> = ({ pendingTransitions }) => {
     dispatch(setDealDetail(deal));
   };
 
-  const pendingTransitionss = [
-    {
-      id: '323232',
-      user_creator: {
-        chat_id: 2323232323,
-      },
-      sum: '444',
-      status: 'активно',
-      created_at: '23.3.2025',
-      finished_at: '43343',
-      user_initiator: {
-        chat_id: 2323232323,
-        first_name: 'Nickel',
-        last_name: 'Nickel',
-        username: 'Nickel',
-        is_premium: true,
-      },
-      user_user_for: {
-        chat_id: 2323232323,
-        first_name: 'Nickel',
-        last_name: 'Nickel',
-        username: 'Nickel',
-        is_premium: true,
-      },
-    },
-  ];
-
   return (
     <>
-      {pendingTransitions?.length !== 0 ? (
+      {pendingTransitions?.length === 0 ? (
         <NoDeals />
       ) : (
-        pendingTransitionss?.map((deal: IDeal) => {
+        pendingTransitions?.map((deal: IDeal) => {
           return (
             <div
               onClick={() => onClickDeal(deal)}

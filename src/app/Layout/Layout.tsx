@@ -7,15 +7,13 @@ const Layout = () => {
 
   return (
     <>
-      <div className="px-[15px] w-full max-w-[1220px] mx-auto">
+      <div className="w-full max-w-[1220px] mx-auto">
         <Header />
         <main
           className={
-            location.pathname === '/deals' ||
-            location.pathname === '/' ||
-            location.pathname.includes('/preloader')
+            location.pathname === '/preloader'
               ? 'w-full max-w-[1220px] h-full min-h-[calc(100vh-85px)]'
-              : 'max-w-[1220px] w-full flex-1 mx-auto min-h-[calc(100vh-85px)] mb-[100px]'
+              : 'max-w-[1220px] w-full px-[15px] flex-1 mx-auto min-h-[calc(100vh-85px)] mb-[100px]'
           }>
           <Outlet />
         </main>

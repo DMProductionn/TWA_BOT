@@ -22,7 +22,7 @@ const Search = () => {
       onChange={(e) => setInputValue(e.target.value)} 
       type="text"
       placeholder="Поиск..."
-      className="text-[#494D58] placeholder:text-[#494D58] w-full h-[50px] bg-blue-medium text-[12px] pl-[15px] rounded-[12px] outline-none mb-[20px]"
+      className="text-[#494D58] placeholder:text-[#494D58] w-full h-[50px] bg-blue-medium text-[12px] pl-[15px] rounded-[12px] outline-none"
     />
   );
 };

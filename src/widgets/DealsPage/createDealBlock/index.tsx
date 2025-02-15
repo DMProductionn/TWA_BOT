@@ -29,7 +29,7 @@ const CreateDealBlock = () => {
         navigate('/profile');
         setActiveRight(false);
         dispatch(setActive(false));
-      }, 1000);
+      }, 1300);
     }
   }, [isSuccess]);
 
@@ -37,6 +37,7 @@ const CreateDealBlock = () => {
     const newValue = e.target.value.replace(/\D/g, '');
     setValueSum(newValue);
   };
+
 
   return (
     <div
@@ -97,7 +98,7 @@ const CreateDealBlock = () => {
                 placeholder="0.00"
               />
             </div>
-            {!isError && (
+            {isError && (
               // @ts-ignore
               <p className="w-full mt-[10px] text-center mb-[20px] text-red">{error?.message}</p>
             )}

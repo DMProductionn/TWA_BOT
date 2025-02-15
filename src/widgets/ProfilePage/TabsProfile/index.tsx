@@ -24,7 +24,6 @@ const TabsProfile: React.FC = () => {
   return (
     <>
       <div className="wrapper__tabs-profile gap-[10px] pr-[8px] flex justify-between items-center relative">
-        <div className="w-[10px] h-[10px] absolute z-[9] right-[5px] top-[13px] rounded-[50%] bg-green flex justify-center items-center text-[12px] font-[600]"></div>
         {tabs.map((tab, index) => (
           <button
             key={index}

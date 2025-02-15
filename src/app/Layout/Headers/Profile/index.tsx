@@ -14,7 +14,7 @@ const HeaderProfile = () => {
           <img className="w-full h-full object-cover" src="./img/test.png" alt="" />
         </div>
         <div>
-          <p className="text-[20px] font-bold">{profileInfo?.username} Gem4ik01</p>
+          <p className="text-[20px] font-bold">{profileInfo?.username}</p>
           <RatingProfile rating={profileInfo?.rating ?? 5.0}/>
         </div>
       </div>

@@ -22,7 +22,7 @@ const User: React.FC<TypeUserProps> = ({ id, first_name, is_premium, rating }) =
           {is_premium ? (
             <p className="text-[10px] text-green absolute -top-[10px] -right-[30px]">Premium</p>
           ) : null}
-          <p className="text-[14px] font-bold leading-[90%] my-[5px]">{first_name} Gem4ik01</p>
+          <p className="text-[14px] font-bold leading-[90%] my-[5px]">{first_name}</p>
         </div>
         <RatingUser rating={rating} />
         <CreateDeal firstName={first_name} user_for={id} />

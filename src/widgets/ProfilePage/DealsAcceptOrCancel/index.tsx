@@ -53,7 +53,7 @@ const DealsAcceptOrCancel: React.FC = () => {
         dispatch(setActiveLeftProfile(false));
         dispatch(setActiveRightProfile(false));
         setShowAnimation(false);
-      }, 1000);
+      }, 1300);
       return () => clearTimeout(timer);
     }
   }, [isSuccessAccept, isSuccessCompletion]);
@@ -65,7 +65,7 @@ const DealsAcceptOrCancel: React.FC = () => {
         dispatch(setActiveLeftProfile(false));
         dispatch(setActiveRightProfile(false));
         setShowAnimationCancel(false);
-      }, 1000);
+      }, 1300);
       return () => clearTimeout(timer);
     }
   }, [isSuccessCancel]);
