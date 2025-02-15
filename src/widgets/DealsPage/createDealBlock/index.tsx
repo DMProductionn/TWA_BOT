@@ -63,7 +63,7 @@ const CreateDealBlock = () => {
       ) : (
         <>
           <button
-            className="absolute z-[999] flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] top-[40px] w-auto px-[15px] rounded-[20px]"
+            className="flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] top-[40px] w-auto px-[15px] rounded-[20px]"
             onClick={() => (dispatch(setActiveRight(true)), dispatch(setActive(false)))}>
             <div className="border-r flex justify-center items-center h-full border-[#4E5567]">
               <svg
@@ -81,10 +81,10 @@ const CreateDealBlock = () => {
             </div>
             <p className="text-[14px] font-bold">Назад</p>
           </button>
-          <div className="w-full h-full flex flex-col justify-center items-center text-center mb-[60px] relative">
-            <div className="bg-blue-medium h-[50px] w-[330px] rounded-[20px] flex justify-center items-center mb-[30px]">
+          <div className="w-full h-full flex px-[15px] flex-col justify-center items-center text-center mb-[60px] relative">
+            <div className="bg-blue-medium h-[50px] w-full max-w-[330px] rounded-[20px] flex justify-center items-center mb-[30px]">
               <p className="w-full text-center font-bold">
-                Сделка с <span className="text-green">{usersFirstName}Gem4ik01</span>
+                Сделка с <span className="text-green">{usersFirstName}</span>
               </p>
             </div>
             <p className="w-full text-center mb-[5px] font-bold">Введите сумму в рублях</p>

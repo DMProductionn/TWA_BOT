@@ -15,7 +15,7 @@ const CreateDealForUser: React.FC<{ sum: string, mutate: any }> = ({ sum, mutate
   }
 
   return (
-    <button disabled={!sum.trim()} onClick={onClickCreateDeal} className={`max-w-[360px] h-[50px] text-text-black font-bold w-full bg-green absolute bottom-[50px] rounded-[20px] text-center text-[18px] ${!sum.trim() && 'opacity-50 cursor-not-allowed'}`}>Создать</button>
+    <button disabled={!sum.trim()} onClick={onClickCreateDeal} className={`max-w-[360px] h-[50px] text-text-black mt-[40px] font-bold w-full bg-green rounded-[20px] text-center text-[18px] ${!sum.trim() && 'opacity-50 cursor-not-allowed'}`}>Создать</button>
   )
 }
 

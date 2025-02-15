@@ -108,7 +108,7 @@ const DealsAcceptOrCancel: React.FC = () => {
       ) : (
         <>
           <button
-            className="absolute z-[999] flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] top-[40px] w-auto px-[15px] rounded-[20px]"
+            className="flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] top-[40px] w-auto px-[15px] rounded-[20px]"
             onClick={() => (
               dispatch(setActiveRightProfile(true)), dispatch(setActiveLeftProfile(false))
             )}>
@@ -128,16 +128,16 @@ const DealsAcceptOrCancel: React.FC = () => {
             </div>
             <p className="text-[14px] font-bold">Назад</p>
           </button>
-          <div className="w-full h-full flex flex-col justify-center items-center text-center mb-[60px] relative">
-            <div className="bg-blue-medium h-[50px] w-[330px] rounded-[20px] flex justify-center items-center mb-[30px]">
+          <div className="w-full h-full px-[15px] flex flex-col justify-center items-center text-center mb-[60px] relative">
+            <div className="bg-blue-medium h-[50px] w-full max-w-[330px] rounded-[20px] flex justify-center items-center mb-[30px]">
               <p className="w-full text-center font-bold">
                 Сделка с <span className="text-green">{dealDetail?.user_user_for.username}</span>
               </p>
             </div>
             <p className="w-full text-center mb-[5px] font-bold">Сумма сделки</p>
             <div className="flex items-center gap-[10px]">
-              <p className="text-white text-[50px] leading-[100%] font-bold">{dealDetail?.sum}</p>
-              <p className="text-[#21242D] text-[50px] leading-[100%] font-bold">RUB</p>
+              <p className="text-white text-[50px] leading-[100%] font-bold summ__AorC">{dealDetail?.sum}</p>
+              <p className="text-[#21242D] text-[50px] leading-[100%] font-bold summ__AorC">RUB</p>
             </div>
             <AcceptDeal
               transaction_id={dealDetail?.id ?? ''}

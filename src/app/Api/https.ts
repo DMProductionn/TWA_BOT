@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const https = axios.create({
-  baseURL: 'https://paymentfreebot-telegram-web-bot.onrender.com/',
+  baseURL: 'http://localhost:8000',
 });
 
 https.interceptors.request.use(
