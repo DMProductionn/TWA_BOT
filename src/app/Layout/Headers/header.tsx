@@ -1,4 +1,3 @@
-import Search from '../../../widgets/DealsPage/Search';
 import HeaderDeals from './Deals';
 import HeaderHistory from './History';
 import HeaderHistoryBalance from './HistoryBalance';
