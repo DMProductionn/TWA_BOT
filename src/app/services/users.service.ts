@@ -17,3 +17,4 @@ export const getUserSearch = async (search: string | null) => {
   console.log(res.data);
   return res.data;
 };
+

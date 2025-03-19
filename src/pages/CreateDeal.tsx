@@ -1,19 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import type { AppDispatch, RootState } from '../../../app/redux/store';
 import '../../../app/css/Deals/CreateDeal/create-deal.css';
-import CreateDealForUser from '../../../features/CreateDealForUser';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
-import useCreateDeal from '../../../app/hooks/Deals/useCreateDeal';
-import { setActive, setActiveRight } from '../../../app/redux/Slices/animation.slice';
 import Lottie from 'lottie-react';
-import animation from '../../../../public/img/icons/success.json';
 import { useNavigate } from 'react-router-dom';
-import { setValueTabsProfile } from '../../../app/redux/Slices/tabs.slice';
-import Loader from '../../../shared/Loader';
+import { AppDispatch, RootState } from '../app/redux/store';
+import useCreateDeal from '../app/hooks/Deals/useCreateDeal';
+import { setValueTabsProfile } from '../app/redux/Slices/tabs.slice';
+import Loader from '../shared/Loader';
+import animation from '../../public/img/icons/success.json';
+import CreateDealForUser from '../features/CreateDealForUser';
 
-const CreateDealBlock = () => {
+const CreateDeal = () => {
   const [valueSum, setValueSum] = useState('');
-  const { active, activeRight } = useSelector((state: RootState) => state.animationSlice);
   const { usersFirstName } = useSelector((state: RootState) => state.usersSlice);
   const { mutate, isPending, isSuccess, isError, error } = useCreateDeal();
   const dispatch: AppDispatch = useDispatch();
@@ -23,13 +21,9 @@ const CreateDealBlock = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      setTimeout(() => {
-        dispatch(setValueTabsProfile('в ожидании'));
-        localStorage.setItem('indexTabProfile', JSON.stringify(1));
-        navigate('/profile');
-        setActiveRight(false);
-        dispatch(setActive(false));
-      }, 1300);
+      dispatch(setValueTabsProfile('в ожидании'));
+      localStorage.setItem('indexTabProfile', JSON.stringify(1));
+      navigate('/profile');
     }
   }, [isSuccess]);
 
@@ -38,14 +32,8 @@ const CreateDealBlock = () => {
     setValueSum(newValue);
   };
 
-
   return (
-    <div
-      className={`${
-        active ? 'go-left' : ''
-      } bg-blue-dark max-h-[100vh] h-full top-[0px] fixed z-[999] w-full py-[10px] rounded-[4px] px-[15px] create-deal-block ${
-        activeRight && 'go-right'
-      }`}>
+    <div className="bg-blue-dark max-h-[100vh] h-full w-full py-[10px] rounded-[4px] px-[15px] create-deal-block">
       {isPending ? (
         <div className="w-full h-full flex justify-center items-center">
           <Loader />
@@ -62,9 +50,7 @@ const CreateDealBlock = () => {
         </div>
       ) : (
         <>
-          <button
-            className="flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] top-[40px] w-auto px-[15px] rounded-[20px]"
-            onClick={() => (dispatch(setActiveRight(true)), dispatch(setActive(false)))}>
+          <button className="flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] w-auto px-[15px] rounded-[20px]">
             <div className="border-r flex justify-center items-center h-full border-[#4E5567]">
               <svg
                 className="mr-[15px]"
@@ -110,4 +96,4 @@ const CreateDealBlock = () => {
   );
 };
 
-export default CreateDealBlock;
+export default CreateDeal;

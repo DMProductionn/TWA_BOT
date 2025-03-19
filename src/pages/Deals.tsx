@@ -5,8 +5,9 @@ import type { RootState } from '../app/redux/store';
 import useGetUserSearch from '../app/hooks/Users/useGetUserSearch';
 import { useEffect, useState } from 'react';
 import { TypeUser } from '../app/types/Deals/user.type';
-import CreateDealBlock from '../widgets/DealsPage/createDealBlock';
 import Loader from '../shared/Loader';
+
+
 const Deals = () => {
   const { users } = useSelector((state: RootState) => state.usersSlice);
   const { profileInfo } = useSelector((state: RootState) => state.profileSlice);
@@ -26,7 +27,6 @@ const Deals = () => {
 
   return (
     <>
-      <CreateDealBlock />
       <div className={style.users_wrapper_static}>
         <div className={style.users__wrapper_container}>
           {isLoading ? (
