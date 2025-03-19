@@ -57,10 +57,6 @@ const PreloaderPage: React.FC = () => {
     if (window.Telegram) {
       window.Telegram.WebApp.ready();
 
-      const tg = window.Telegram.WebApp;
-
-      tg.expand(); 
-
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
 
       if (initDataUnsafe && initDataUnsafe.user && initDataUnsafe.user.id) {
