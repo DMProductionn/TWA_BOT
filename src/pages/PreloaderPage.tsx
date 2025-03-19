@@ -19,7 +19,6 @@ const PreloaderPage: React.FC = () => {
   const { data: usersMe, isSuccess: isUsersMeSuccess } = useGetUsersMe();
   const { isSuccess: isTransactionsSuccess } = useGetTransactions();
   const { mutate: getToken, data: tokenData, isSuccess: isTokenSuccess } = useGetToken();
-  
 
   const username = {
     username: userName,
@@ -57,6 +56,11 @@ const PreloaderPage: React.FC = () => {
   useEffect(() => {
     if (window.Telegram) {
       window.Telegram.WebApp.ready();
+
+      const tg = window.Telegram.WebApp;
+
+      tg.expand(); 
+
       const initDataUnsafe = window.Telegram.WebApp.initDataUnsafe;
 
       if (initDataUnsafe && initDataUnsafe.user && initDataUnsafe.user.id) {
