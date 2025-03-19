@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import '../../../app/css/Deals/CreateDeal/create-deal.css';
+import '../app/css/Deals/CreateDeal/create-deal.css';
 import { ChangeEvent, useEffect, useRef, useState } from 'react';
 import Lottie from 'lottie-react';
 import { useNavigate } from 'react-router-dom';
