@@ -19,17 +19,17 @@ const Layout = () => {
           damping: 30, // демпфирование пружины
           duration: 0.4, // продолжительность анимации
         }}>
-        <div className="w-full max-w-[1220px] mx-auto">
+        <>
           <Header />
           <main
             className={
               location.pathname === '/'
                 ? 'w-full max-w-[1220px] h-full min-h-[calc(100vh-85px)]'
-                : 'max-w-[1220px] w-full px-[15px] flex-1 mx-auto min-h-[calc(100vh-85px)] mb-[100px]'
+                : 'max-w-[1220px] w-full px-[15px] flex-1 mx-auto min-h-full mb-[100px]'
             }>
             <Outlet />
           </main>
-        </div>
+        </>
       </motion.div>
       {!location.pathname.includes('/preloader') && <Footer />}
     </>

@@ -21,9 +21,11 @@ const CreateDeal = () => {
 
   useEffect(() => {
     if (isSuccess) {
-      dispatch(setValueTabsProfile('в ожидании'));
-      localStorage.setItem('indexTabProfile', JSON.stringify(1));
-      navigate('/profile');
+      setTimeout(() => {
+        dispatch(setValueTabsProfile('в ожидании'));
+        localStorage.setItem('indexTabProfile', JSON.stringify(1));
+        navigate('/profile');
+      }, 1300);
     }
   }, [isSuccess]);
 
@@ -33,7 +35,7 @@ const CreateDeal = () => {
   };
 
   return (
-    <div className="bg-blue-dark max-h-[100vh] h-full w-full py-[10px] rounded-[4px] px-[15px]">
+    <div className="bg-blue-dark h-full w-full py-[10px] rounded-[4px] px-[15px]">
       {isPending ? (
         <div className="w-full h-full flex justify-center items-center">
           <Loader />
@@ -50,7 +52,9 @@ const CreateDeal = () => {
         </div>
       ) : (
         <>
-          <button onClick={() => navigate(-1)} className="flex gap-[10px] justify-center items-center bg-blue-medium h-[40px] w-auto px-[15px] rounded-[20px]">
+          <button
+            onClick={() => navigate(-1)}
+            className="flex gap-[10px] justify-center absolute z-[999] top-[20px] items-center bg-blue-medium h-[40px] w-auto px-[15px] rounded-[20px]">
             <div className="border-r flex justify-center items-center h-full border-[#4E5567]">
               <svg
                 className="mr-[15px]"
@@ -67,7 +71,7 @@ const CreateDeal = () => {
             </div>
             <p className="text-[14px] font-bold">Назад</p>
           </button>
-          <div className="w-full min-h-[calc(100vh-85px)] flex px-[15px] flex-col justify-center items-center text-center relative">
+          <div className="w-full min-h-[calc(100vh-120px)] flex px-[15px] flex-col justify-center items-center text-center relative">
             <div className="bg-blue-medium h-[50px] w-full max-w-[330px] rounded-[20px] flex justify-center items-center mb-[30px]">
               <p className="w-full text-center font-bold">
                 Сделка с <span className="text-green">{usersFirstName}</span>

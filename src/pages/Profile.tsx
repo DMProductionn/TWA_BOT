@@ -3,7 +3,6 @@ import TabsProfile from '../widgets/ProfilePage/TabsProfile';
 import type { RootState } from '../app/redux/store';
 import ActiveDeals from '../widgets/ProfilePage/Deals/ActiveDeals';
 import DealsPending from '../widgets/ProfilePage/Deals/DealsPending';
-import DealsAcceptOrCancel from '../widgets/ProfilePage/DealsAcceptOrCancel';
 import useGetTransactions from '../app/hooks/History/useGetTransactions';
 import { useEffect, useState } from 'react';
 import type { IDeal } from '../app/types/Deals/deal.type';
@@ -26,7 +25,6 @@ const Profile = () => {
 
   return (
     <>
-      <DealsAcceptOrCancel />
       <div className='flex flex-col gap-[15px]'>
         <div className="flex flex-col gap-[5px]">
           <p className="text-green">Текущий баланс</p>

@@ -6,6 +6,7 @@ import Deals from '../../pages/Deals';
 import PreloaderPage from '../../pages/PreloaderPage';
 import HistoryBalance from '../../pages/HistoryBalance';
 import CreateDeal from '../../pages/CreateDeal';
+import DealsAcceptOrCancel from '../../pages/DealsAcceptOrCancel';
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
             <Route path="/history" element={<History />} />
             <Route path="/profile" element={<Profile />} />
             <Route path="/create-deal/:name" element={<CreateDeal />} />
+            <Route path="/accept-or-cancel/:name" element={<DealsAcceptOrCancel />} />
             <Route path="/history-balance" element={<HistoryBalance />} />
             <Route path="*" element={<div>404</div>} />
           </Route>

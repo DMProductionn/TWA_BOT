@@ -15,6 +15,12 @@ const CreateDeal: React.FC<{firstName: string, user_for: string}> = ({ firstName
     dispatch(setUsersFirstName(firstName));
     dispatch(setUsersId(user_for));
     navigate(`/create-deal/${firstName}`);
+    if (navigator.vibrate) {
+      // Вибрация на 1 секунду (1000 миллисекунд)
+      navigator.vibrate(1000);
+    } else {
+      alert("Вибрация не поддерживается этим устройством.");
+    }
   }
 
   return (

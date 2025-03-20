@@ -14,16 +14,16 @@ const Deals = () => {
   const [filteredData, setFilteredData] = useState([]);
   const [filterUsers, setFilterUsers] = useState<TypeUser[] | undefined>([]);
 
-  const filterUsersTest: TypeUser[] = [
-    {
-      first_name: 'Dima',
-      id: '123333',
-      is_premium: true,
-      last_name: null,
-      rating: 5,
-      username: 'Dima',
-    },
-  ];
+  // const filterUsersTest: TypeUser[] = [
+  //   {
+  //     first_name: 'Dima',
+  //     id: '123333',
+  //     is_premium: true,
+  //     last_name: null,
+  //     rating: 5,
+  //     username: 'Dima',
+  //   },
+  // ];
 
   const { data, refetch, isLoading } = useGetUserSearch(search || null);
 
@@ -51,7 +51,7 @@ const Deals = () => {
         ) : search ? (
           filteredData?.map((user: TypeUser) => <User key={user.id} {...user} />)
         ) : (
-          filterUsersTest?.map((user: TypeUser) => <User key={user.id} {...user} />)
+          filterUsers?.map((user: TypeUser) => <User key={user.id} {...user} />)
         )}
       </div>
     </div>

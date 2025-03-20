@@ -8,6 +8,7 @@ import {
   setActiveRightProfile,
 } from '../../../../app/redux/Slices/animation.slice';
 import { setDealDetail } from '../../../../app/redux/Slices/dealdetail.slice';
+import { useNavigate } from 'react-router-dom';
 
 type Props = {
   pendingTransitions: IDeal[];
@@ -15,12 +16,41 @@ type Props = {
 
 const DealsPending: React.FC<Props> = ({ pendingTransitions }) => {
   const dispatch: AppDispatch = useDispatch();
+  const navigate = useNavigate();
 
   const onClickDeal = (deal: IDeal) => {
     dispatch(setActiveLeftProfile(true));
     dispatch(setActiveRightProfile(false));
     dispatch(setDealDetail(deal));
+    navigate(`/accept-or-cancel/${deal.id}`);
   };
+
+  // const pendingTest: IDeal[] = [
+  //   {
+  //     id: '4444',
+  //     user_creator: {
+  //       chat_id: 332323,
+  //     },
+  //     sum: '400',
+  //     status: 'в ожидании',
+  //     created_at: '333',
+  //     finished_at: '000',
+  //     user_initiator: {
+  //       chat_id: 222,
+  //       first_name: 'Dima',
+  //       last_name: 'Goluz',
+  //       username: 'Dima',
+  //       is_premium: true,
+  //     },
+  //     user_user_for: {
+  //       chat_id: 1212,
+  //       first_name: 'Ivan',
+  //       last_name: 'Ivan',
+  //       username: 'Ivan',
+  //       is_premium: true,
+  //     },
+  //   },
+  // ];
 
   return (
     <>
